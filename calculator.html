@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beautiful Calculator UI</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1e1e2f, #2a2a40);
+            color: #fff;
+        }
+
+        .calculator {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 24px;
+            width: 320px;
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+        }
+
+        .display {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 16px;
+            padding: 24px 20px;
+            margin-bottom: 24px;
+            text-align: right;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .display-text {
+            font-size: 3rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .keypad {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 16px 0;
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            user-select: none;
+        }
+
+        .btn:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        /* Specialty buttons */
+        .btn.operator {
+            background: rgba(255, 149, 0, 0.8);
+            border-color: rgba(255, 149, 0, 0.5);
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+
+        .btn.operator:hover {
+            background: rgba(255, 149, 0, 1);
+        }
+
+        .btn.action {
+            background: rgba(165, 165, 165, 0.15);
+            color: #ff9500;
+        }
+
+        .btn.action:hover {
+            background: rgba(165, 165, 165, 0.25);
+        }
+        
+        .btn.zero {
+            grid-column: span 2;
+            border-radius: 16px;
+            justify-content: flex-start;
+            padding-left: 28px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calculator">
+        <div class="display">
+            <div class="display-text">0</div>
+        </div>
+        <div class="keypad">
+            <div class="btn action">AC</div>
+            <div class="btn action">+/-</div>
+            <div class="btn action">%</div>
+            <div class="btn operator">÷</div>
+            
+            <div class="btn">7</div>
+            <div class="btn">8</div>
+            <div class="btn">9</div>
+            <div class="btn operator">×</div>
+            
+            <div class="btn">4</div>
+            <div class="btn">5</div>
+            <div class="btn">6</div>
+            <div class="btn operator">-</div>
+            
+            <div class="btn">1</div>
+            <div class="btn">2</div>
+            <div class="btn">3</div>
+            <div class="btn operator">+</div>
+            
+            <div class="btn zero">0</div>
+            <div class="btn">.</div>
+            <div class="btn operator">=</div>
+        </div>
+    </div>
+
+</body>
+</html>
