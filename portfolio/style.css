@@ -1,0 +1,333 @@
+:root {
+    --color-sage: #9cb09b;
+    --color-sage-dark: #819180;
+    --color-cream: #f4efdf;
+    --color-cream-dark: #e8e3d3;
+    --color-charcoal: #2b2c30;
+    --color-accent: #8b4545;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+    color: var(--color-charcoal);
+    background: radial-gradient(circle at center, var(--color-sage), var(--color-sage-dark));
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+.texture-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0.15;
+    mix-blend-mode: multiply;
+    background-image: url('data:image/svg+xml;utf8,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
+}
+
+.global-noise { position: fixed; }
+
+.vignette {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    box-shadow: inset 0 0 200px rgba(40, 50, 40, 0.6);
+    pointer-events: none;
+    z-index: 5;
+}
+
+.portfolio-container {
+    position: relative;
+    z-index: 6;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+/* === HEADER === */
+.cover-header {
+    width: 100%;
+    height: 75vh;
+    min-height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, var(--color-cream), var(--color-cream-dark));
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2), inset 0 0 30px rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    padding: 1.5rem;
+    overflow: hidden;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(42, 43, 46, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-container {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    margin-top: -10vh;
+    animation: fadeIn 1.5s ease-out forwards;
+}
+
+.script-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 4rem;
+    font-weight: 400;
+    margin-bottom: -1rem;
+    margin-left: -10rem;
+    color: var(--color-charcoal);
+    transform: rotate(-3deg);
+}
+
+.main-title {
+    font-family: 'Bodoni Moda', serif;
+    font-size: clamp(4rem, 10vw, 9rem);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -2px;
+    color: var(--color-charcoal);
+    transform: scaleY(1.1);
+}
+
+.star-o {
+    position: relative;
+    display: inline-block;
+    padding: 0 0.05em;
+}
+
+.star-o::after {
+    content: "✦";
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%) scaleY(0.9);
+    font-size: 0.35em;
+    color: var(--color-charcoal);
+}
+
+.vintage-rose {
+    position: absolute;
+    bottom: -15%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140%;
+    max-width: 650px;
+    mix-blend-mode: multiply;
+    z-index: 10;
+    pointer-events: none;
+    filter: contrast(1.1) sepia(0.3) brightness(0.95);
+    animation: slideUpFade 1.5s ease-out 0.5s forwards;
+    opacity: 0;
+}
+
+/* === TWO COLUMN CONTENT === */
+.content-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    background: radial-gradient(circle, var(--color-cream), var(--color-cream-dark));
+    padding: 4rem;
+    border-radius: 4px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+    position: relative;
+}
+
+.content-columns::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url('data:image/svg+xml;utf8,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
+    opacity: 0.08;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+    border-radius: 4px;
+}
+
+.side-decoration {
+    position: absolute;
+    left: -150px;
+    top: 20%;
+    width: 250px;
+    height: 350px;
+    pointer-events: none;
+    z-index: 20;
+}
+
+.side-fern {
+    position: absolute;
+    top: 0; left: 20px;
+    width: 200px;
+    mix-blend-mode: multiply;
+    transform: rotate(-15deg);
+    filter: contrast(1.1) sepia(0.5) saturate(1.5);
+}
+
+.side-rose {
+    position: absolute;
+    bottom: 0; left: -30px;
+    width: 250px;
+    mix-blend-mode: multiply;
+    transform: rotate(15deg);
+    filter: contrast(1.15) sepia(0.1) saturate(1.3);
+}
+
+.floral-watermark {
+    position: absolute;
+    z-index: 1;
+    opacity: 0.12;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+    filter: contrast(1.1) sepia(0.4);
+}
+
+.floral-watermark.top-right {
+    top: -5%; right: -10%;
+    width: 60%; max-width: 450px;
+    transform: rotate(15deg);
+}
+
+.floral-watermark.bottom-left {
+    bottom: -5%; left: -15%;
+    width: 70%; max-width: 550px;
+    transform: rotate(-20deg);
+}
+
+.portfolio-section {
+    margin-bottom: 3.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.section-title {
+    font-family: 'Bodoni Moda', serif;
+    font-size: 2.2rem;
+    font-weight: 400;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    color: var(--color-accent);
+    position: relative;
+}
+
+.section-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 60px; height: 2px;
+    background-color: var(--color-accent);
+    opacity: 0.6;
+}
+
+.section-content {
+    line-height: 1.7;
+    font-size: 0.95rem;
+    color: #3a3b3e;
+}
+
+.section-content p {
+    margin-bottom: 1rem;
+}
+
+.section-content strong {
+    color: var(--color-accent);
+    font-weight: 600;
+}
+
+/* Timeline */
+.timeline-item { margin-bottom: 1.8rem; }
+.timeline-item h3 {
+    font-family: 'Bodoni Moda', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+}
+.timeline-item .date {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--color-accent);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+.timeline-item p.desc {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Projects */
+.project-item { margin-bottom: 1.8rem; }
+.project-item h3 {
+    font-family: 'Bodoni Moda', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+}
+
+/* Polaroid */
+.polaroid-frame {
+    background-color: #fcfbf8;
+    padding: 12px 12px 45px 12px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1), 0 3px 10px rgba(0, 0, 0, 0.05);
+    transform: rotate(-3deg);
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto 2.5rem auto;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.polaroid-frame:hover {
+    transform: rotate(1deg) scale(1.02);
+}
+
+.polaroid-frame img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: sepia(0.25) contrast(0.95);
+}
+
+/* Animations */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUpFade {
+    from { opacity: 0; transform: translate(-50%, 10%); }
+    to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .content-columns {
+        grid-template-columns: 1fr;
+        padding: 3rem 2rem;
+    }
+    .portfolio-container { padding: 2rem 1rem; }
+    .cover-header { height: 60vh; }
+    .vintage-rose { width: 180%; }
+    .script-title { font-size: 2.5rem; margin-left: -5rem; }
+    .side-decoration { left: -70px; transform: scale(0.7); }
+}
