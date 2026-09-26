@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Creative Portfolio </title>
+    <title>My Creative Portfolio</title>
     <meta name="description" content="A vintage aesthetic 2-column portfolio">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,112 +19,223 @@
     <div class="vignette"></div>
 
     <div class="portfolio-container">
-        <!-- HEADER / COVER (Matches the picture) -->
-        <header class="cover-header">
-            <div class="card">
-                <div class="texture-overlay noise cream-overlay"></div>
 
-                <div class="card-inner">
-
-                    <div class="title-container">
-                        <h2 class="script-title">My Creative</h2>
-                        <h1 class="main-title">
-                            P<span class="star-o">o</span>rtf<span class="star-o">o</span>li<span
-                                class="star-o">o</span>
-                        </h1>
-                    </div>
-
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Rosa_indica_cruenta_-_Pierre-Joseph_Redout%C3%A9.jpg/800px-Rosa_indica_cruenta_-_Pierre-Joseph_Redout%C3%A9.jpg"
-                        alt="Vintage Rose" class="vintage-rose">
-                </div>
-            </div>
-        </header>
-
-        <!-- TWO COLUMN CONTENT -->
-        <main class="content-columns">
+        <!-- LEFT COLUMN -->
+        <div class="split-column left-column">
             <!-- Decorative botanical watermarks -->
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Lilium_candidum_-_Pierre-Joseph_Redout%C3%A9.jpg/800px-Lilium_candidum_-_Pierre-Joseph_Redout%C3%A9.jpg"
                 alt="" class="floral-watermark top-right">
+
+            <header class="cover-header">
+                <div class="title-container">
+                    <h2 class="script-title">My Creative</h2>
+                    <h1 class="main-title">Portfolio</h1>
+                </div>
+                <div class="profile-pic-frame">
+                    <img src="c:\Users\HP\Pictures\B612_20251220_180908_341.jpg" alt="Profile Picture" class="profile-pic">
+                </div>
+            </header>
+
+            <section class="portfolio-section">
+                <h2 class="section-title">About Me</h2>
+                <div class="section-content">
+                    <p>Computer Science undergraduate at Air University Islamabad with hands-on experience building
+                        full-stack web applications, desktop software, and mobile apps. Skilled across multiple
+                        languages and frameworks including C++, C#, Flutter, Node.js, and Blazor. Actively involved in
+                        tech communities through MLSA and GDG, and driven by a passion for solving real-world problems
+                        through clean, scalable software.</p>
+                </div>
+            </section>
+
+            <section class="portfolio-section">
+                <h2 class="section-title">Skills</h2>
+                <div class="section-content skills-list">
+                    <div class="skill-category">
+                        <strong>Programming:</strong> C++, C#, Dart, JavaScript, SQL, HTML, CSS
+                    </div>
+                    <div class="skill-category">
+                        <strong>Frameworks & Platforms:</strong> Flutter, Blazor .NET 8, Node.js, Express.js, Firebase,
+                        SFML
+                    </div>
+                    <div class="skill-category">
+                        <strong>Databases:</strong> SQL Server (MSSQL), Firebase Firestore, MySQL
+                    </div>
+                    <div class="skill-category">
+                        <strong>Concepts:</strong> OOP, Data Structures, REST APIs, JWT Auth, AES/SHA-256 Encryption,
+                        CRUD, 3-Tier Architecture
+                    </div>
+                    <div class="skill-category">
+                        <strong>Dev Tools:</strong> Git, GitHub, Visual Studio, VS Code, Android Studio, SSMS
+                    </div>
+                </div>
+            </section>
+
+            <section class="portfolio-section">
+                <h2 class="section-title">Interests</h2>
+                <div class="section-content interests-tags">
+                    <span class="tag">Software Engineering</span>
+                    <span class="tag">Full-Stack Web Development</span>
+                    <span class="tag">Mobile App Development (Flutter)</span>
+                    <span class="tag">AI & Machine Learning</span>
+                    <span class="tag">Cybersecurity & Encryption</span>
+                    <span class="tag">Cloud Computing</span>
+                    <span class="tag">Game Development</span>
+                    <span class="tag">Open Source Contribution</span>
+                    <span class="tag">UI/UX Design</span>
+                    <span class="tag">Database Systems</span>
+                    <span class="tag">System Architecture</span>
+                </div>
+            </section>
+
+            <section class="portfolio-section">
+                <h2 class="section-title">Contact Me</h2>
+                <div class="section-content contact-info">
+                    <p><strong>Email:</strong> Aeenakhan190@gmail.com</p>
+                    <p><strong>Phone:</strong> +92 315 5661321</p>
+                    <p><strong>Location:</strong> Islamabad, Pakistan</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="split-column right-column">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Rosa_centifolia_foliacea_-_Pierre-Joseph_Redout%C3%A9.jpg/800px-Rosa_centifolia_foliacea_-_Pierre-Joseph_Redout%C3%A9.jpg"
                 alt="" class="floral-watermark bottom-left">
 
-            <!-- LEFT COLUMN -->
-            <div class="info-column">
-                <section class="portfolio-section">
-                    <h2 class="section-title">About Me</h2>
-                    <div class="section-content">
-                        <p>I am a computer science student from air university islamabad currently in my 3rd year.I was
-                            born and raised in
-                            Islamabad and decided to persue a career as a computer scientist and as a developer.</p>
+            <section class="portfolio-section">
+                <h2 class="section-title">Education</h2>
+                <div class="section-content timeline">
+                    <div class="timeline-item">
+                        <h3>B.Sc. in Computer Science (2nd Year)</h3>
+                        <span class="date">2024 - Present</span>
+                        <p class="company">Air University, Islamabad</p>
+                        <div class="coursework">
+                            <strong>Relevant Coursework:</strong>
+                            <ul class="desc-list">
+                                <li>Programming Fundamentals (C++), Object Oriented Programming, Data Structures &
+                                    Algorithms</li>
+                                <li>Database Systems (SQL), Digital Logic Design, Discrete Mathematics</li>
+                                <li>Web Technologies (HTML/CSS/JS), Operating Systems Fundamentals</li>
+                            </ul>
+                        </div>
                     </div>
-                </section>
+                </div>
+            </section>
 
-                <section class="portfolio-section">
-                    <h2 class="section-title">Education</h2>
-                    <div class="section-content timeline">
-                        <div class="timeline-item">
-                            <h3>Bachelor in Computer science</h3>
-                            <span class="date">2024-2028</span>
-                            <p>Air University Islamabad</p>
-                        </div>
-                        <div class="timeline-item">
-                            <h3> FSC (Pre-MED)</h3>
-                            <span class="date">2021 - 2023</span>
-                            <p>Fsc at Dr.A.Q.Khan clg bahria town phase 8</p>
-                        </div>
+            <section class="portfolio-section">
+                <h2 class="section-title">Projects</h2>
+                <div class="section-content projects-list">
+                    <div class="project-item card-style">
+                        <h3>Drift</h3>
+                        <p>A comprehensive travel, tour, and booking application all in one platform. It simplifies
+                            vacation planning by offering real-time tracking, personalized itineraries, and seamless
+                            hotel reservations, providing users with a frictionless travel experience from start to
+                            finish.</p>
                     </div>
-                </section>
+                    <div class="project-item card-style">
+                        <h3>AI-Powered Study Buddy</h3>
+                        <p>Full-stack web application built with Node.js, Express, MSSQL, and vanilla JavaScript that
+                            helps students organize notes, generate AI-powered quizzes and flashcards, chat with a study
+                            assistant, plan tasks, and track daily progress with JWT authentication and bcrypt security.
+                        </p>
+                    </div>
+                    <div class="project-item card-style">
+                        <h3>CipherVault Security System</h3>
+                        <p>C# Windows Forms desktop application using SQL Server demonstrating AES-encrypted file
+                            storage, SHA-256 password hashing, authentication, password strength analysis, and simulated
+                            cyber attacks (brute force and dictionary) in a 3-tier layered architecture.</p>
+                    </div>
+                    <div class="project-item card-style">
+                        <h3>EduConnect - Academic Web Portal</h3>
+                        <p>Role-based academic management portal built with Blazor .NET 8 and Bootstrap 5, featuring
+                            student, faculty, and admin modules, course enrollment with capacity tracking, a
+                            CGPA/grading engine, and an event-driven real-time notification system.</p>
+                    </div>
+                    <div class="project-item card-style">
+                        <h3>MonArena - SFML Monster Battle Game</h3>
+                        <p>C++17 SFML turn-based monster battle game with OOP design, polymorphism, abstract interfaces,
+                            AI-driven combat, status effects (burn/stun), and polished 60 FPS real-time visuals
+                            including particles, screen shake, floating damage numbers, and health bar interpolation.
+                        </p>
+                    </div>
+                    <div class="project-item card-style">
+                        <h3>Recipe-Go</h3>
+                        <p>Flutter mobile app backed by Firebase Firestore and Storage that enables recipe discovery,
+                            smart weekly meal planning, auto-generated grocery lists, community recipe sharing with
+                            ratings, and secure Firebase authentication with guest mode support.</p>
+                    </div>
+                    <div class="project-item card-style">
+                        <h3>SkyWings Airlines</h3>
+                        <p>Full-stack flight booking web application built with Node.js, SQL Server, and HTML/CSS/JS,
+                            featuring user authentication with JWT, flight search and filtering, interactive seat
+                            selection with dynamic pricing, multi-passenger booking, admin dashboard, carbon footprint
+                            calculator, and printable boarding passes.</p>
+                    </div>
+                    <div class="project-item card-style">
+                        <h3>Campus-Connect</h3>
+                        <p>Comprehensive campus management platform built in C++ that streamlines student services
+                            through smart navigation, room reservations, study partner matching, and event organization
+                            with a clean console-based interface.</p>
+                    </div>
+                    <div class="project-item card-style">
+                        <h3>CampusConnect-SFML</h3>
+                        <p>C++ and SFML-powered graphical smart campus management system featuring interactive UI,
+                            campus navigation, room booking, student matching, event scheduling, notifications, and
+                            analytics using real-time visual feedback.</p>
+                    </div>
+                    <div class="project-item card-style">
+                        <h3>Password-Analyzer</h3>
+                        <p>Dual-platform application using C++ and Python that analyzes password strength, encrypts and
+                            stores passwords securely, and simulates brute-force attacks through random guessing for
+                            educational cybersecurity demonstration.</p>
+                    </div>
+                    <div class="project-item card-style">
+                        <h3>BloodBank-System</h3>
+                        <p>C++ console-based Blood Bank Management System that manages donors, blood inventory, and
+                            patient requests using Programming Fundamentals concepts, featuring compatibility matching
+                            and urgency-based processing.</p>
+                    </div>
+                </div>
+            </section>
 
-                <section class="portfolio-section">
-                    <h2 class="section-title">Contact Me</h2>
-                    <div class="section-content">
-                        <p><strong>Email:</strong> Aeenakhan190@gmail.com</p>
-                        <p><strong>Phone:</strong> +92 315 5661321</p>
-                        <p><strong>Location:</strong> Islamabad, Pakistan</p>
+            <section class="portfolio-section">
+                <h2 class="section-title">Experience</h2>
+                <div class="section-content timeline">
+                    <div class="timeline-item">
+                        <h3>Sponsorship Member</h3>
+                        <span class="date">2024 - Present</span>
+                        <p class="company">Microsoft Learn Student Ambassador (MLSA)</p>
+                        <ul class="desc-list">
+                            <li>Secured sponsorships and partnerships for student-focused tech events and workshops.
+                            </li>
+                            <li>Liaised with Microsoft partners and vendors to coordinate funding and resources for
+                                campus initiatives.</li>
+                        </ul>
                     </div>
-                </section>
-            </div>
+                    <div class="timeline-item">
+                        <h3>Operations Member</h3>
+                        <span class="date">2024 - Present</span>
+                        <p class="company">Google Developer Group (GDG)</p>
+                        <ul class="desc-list">
+                            <li>Coordinated event logistics, managed volunteer teams, and handled scheduling for
+                                developer community events.</li>
+                            <li>Supported community outreach and promotion of GDG workshops and speaker sessions.</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>Back-End Developer Intern</h3>
+                        <span class="date">June 2026 - September 2026</span>
+                        <p class="company">Gridcore (Pvt) Ltd</p>
+                        <ul class="desc-list">
+                            <li>Developed a full-scale real-world project meant to be launched soon.</li>
+                            <li>Assisted in designing backend architecture and integrating APIs for scalable deployment.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
 
-            <!-- RIGHT COLUMN -->
-            <div class="info-column">
-                <section class="portfolio-section">
-                    <h2 class="section-title">Experience</h2>
-                    <div class="section-content timeline">
-                        <div class="timeline-item">
-                            <h3>Sponsership team member</h3>
-                            <span class="date">2025 - Present</span>
-                            <p><em>Microsoft learn student ambassadors</em></p>
-                            <p class="desc"> working with my team and club to find sponsers for put events and working
-                                on management.</p>
-                        </div>
-                        <div class="timeline-item">
-                            <h3>Back-end developer Intern</h3>
-                            <span class="date">June,2026 - september,2026</span>
-                            <p><em>gridcore (pvt)ltd</em></p>
-                            <p class="desc">Developed a full scale real world project meant to be launched soon.</p>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="portfolio-section">
-                    <h2 class="section-title">Projects</h2>
-                    <div class="section-content projects-list">
-                        <div class="project-item">
-                            <h3>Drift </h3>
-                            <p>A travel and tour and booking app all in one. </p>
-                        </div>
-                        <div class="project-item">
-                            <h3>Quiz generator</h3>
-                            <p>A quiz generator and assessment platform for students and teachers.</p>
-                        </div>
-                        <div class="project-item">
-                            <h3>recipeGo</h3>
-                            <p>A recipe app that helps you find recipes based on the ingredients you have.</p>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </main>
     </div>
 </body>
 

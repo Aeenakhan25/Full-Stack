@@ -1,154 +1,349 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facebook - Log In or Sign Up</title>
+    <title>Facebook</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="https://static.xx.fbcdn.net/rsrc.php/yD/r/d4ZIVX-5C-b.ico">
+    <!-- Include FontAwesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
+
 <body>
-    <header class="fb-header">
-        <div class="header-container">
-            <svg viewBox="0 0 66.9 12.9" class="fb-logo" aria-label="Facebook" role="img">
-                <g fill="#ffffff">
-                    <path d="M5.2,2c-0.8,0-1,0.4-1,1.1v1.3h2.1L6.1,6.5H4.2v6.3H1.7V6.5H0V4.4h1.7V3.2C1.7,1.1,2.5,0,4.9,0 C5.4,0,6,0,6.3,0.1V2"/>
-                    <path d="M6.5,8.3c0-2.3,1.1-4.1,3.4-4.1c1.3,0,2,0.6,2.4,1.5V4.4h2.4v8.3h-2.4v-1.3c-0.4,0.8-1.1,1.4-2.4,1.4 c-2.3,0-3.4-1.7-3.4-4.1 M9,8.9c0,1.2,0.5,2.1,1.6,2.1c1,0,1.6-0.8,1.6-1.9V8.2c0-1.2-0.5-1.9-1.6-1.9C9.5,6.2,9,7.1,9,8.3V8.9z"/>
-                    <path d="M20,4.3c1,0,1.9,0.2,2.4,0.6l-0.6,1.8c-0.4-0.2-1-0.4-1.7-0.4c-1.4,0-2,0.8-2,2.1v0.5c0,1.3,0.6,2.1,2,2.1 c0.7,0,1.3-0.2,1.7-0.4l0.6,1.8c-0.5,0.4-1.4,0.6-2.4,0.6c-3,0-4.3-1.6-4.3-4.1V8.4C15.7,5.8,17,4.3,20,4.3"/>
-                    <path d="M22.7,8.9V8.2c0-2.4,1.3-3.9,4.1-3.9c2.6,0,3.7,1.6,3.7,3.9v1.3h-5.3c0.1,1.1,0.6,1.6,2,1.6 c0.9,0,1.9-0.2,2.7-0.5l0.5,1.7c-0.7,0.3-2,0.6-3.2,0.6C23.9,12.9,22.7,11.4,22.7,8.9 M25.2,7.8h3V7.6c0-0.9-0.4-1.6-1.5-1.6 C25.7,6,25.2,6.7,25.2,7.8"/>
-                    <path d="M39.9,8.9c0,2.3-1.1,4.1-3.4,4.1c-1.3,0-2.1-0.6-2.5-1.4v1.3h-2.4V0.2L34.1,0v5.6c0.4-0.7,1.2-1.3,2.3-1.3 c2.3,0,3.4,1.7,3.4,4.1 M37.4,8.3c0-1.2-0.5-2-1.7-2c-1,0-1.6,0.7-1.6,1.9V9c0,1.2,0.6,1.9,1.6,1.9c1.2,0,1.7-0.9,1.7-2V8.3z"/>
-                    <path d="M40.7,8.8V8.4c0-2.4,1.4-4.1,4.1-4.1C47.6,4.3,49,6,49,8.4v0.4c0,2.4-1.4,4.1-4.1,4.1 C42.1,12.9,40.7,11.2,40.7,8.8 M46.5,8.2c0-1.1-0.5-2-1.6-2c-1.2,0-1.6,0.9-1.6,2V9c0,1.1,0.5,2,1.6,2c1.2,0,1.6-0.9,1.6-2V8.2z"/>
-                    <path d="M49.8,8.8V8.4c0-2.4,1.4-4.1,4.1-4.1c2.8,0,4.1,1.7,4.1,4.1v0.4c0,2.4-1.4,4.1-4.1,4.1 C51.2,12.9,49.8,11.2,49.8,8.8 M55.6,8.2c0-1.1-0.5-2-1.6-2c-1.2,0-1.6,0.9-1.6,2V9c0,1.1,0.5,2,1.6,2c1.2,0,1.6-0.9,1.6-2V8.2z"/>
-                    <polyline points="61.6,8.4 64.1,4.4 66.8,4.4 64.1,8.5 66.9,12.8 64.2,12.8 61.6,8.7 61.6,12.8 59.1,12.8 59.1,0.2 61.6,0"/>
-                </g>
-            </svg>
+    <!-- Top Navigation -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg" alt="Facebook Logo"
+                class="logo">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search Facebook">
+            </div>
         </div>
-    </header>
 
-    <div class="page-wrapper">
-        <main>
-            <div class="container">
-                <div class="left-section">
-                    <div class="login-box">
-                        <div class="login-header">Log into Facebook</div>
-                        <form>
-                            <div class="input-container">
-                                <input type="text" placeholder="Email or Phone Number" aria-label="Email or Phone Number" required autofocus>
-                            </div>
-                            <div class="input-container">
-                                <input type="password" placeholder="Password" aria-label="Password" required>
-                            </div>
-                            <button type="submit" class="login-btn">Log In</button>
-                            <a href="#" class="forgot-pwd">Forgot Password?</a>
-                            
-                            <div class="divider-wrapper">
-                                <span class="divider-line"></span>
-                                <span class="divider-text">or</span>
-                                <span class="divider-line"></span>
-                            </div>
+        <div class="nav-center">
+            <div class="nav-icon active">
+                <i class="fas fa-home"></i>
+            </div>
+            <div class="nav-icon">
+                <i class="fas fa-tv"></i>
+            </div>
+            <div class="nav-icon">
+                <i class="fas fa-store"></i>
+            </div>
+            <div class="nav-icon">
+                <i class="fas fa-users"></i>
+            </div>
+            <div class="nav-icon">
+                <i class="fas fa-gamepad"></i>
+            </div>
+        </div>
 
-                            <button type="button" class="create-btn">Create New Account</button>
-                        </form>
+        <div class="nav-right">
+            <div class="profile-nav">
+                <img src="c:\Users\HP\Pictures\20250804_132150.jpg" alt="Profile">
+                <span>MastiAeena</span>
+            </div>
+            <div class="icon-btn"><i class="fas fa-plus"></i></div>
+            <div class="icon-btn"><i class="fab fa-facebook-messenger"></i></div>
+            <div class="icon-btn"><i class="fas fa-bell"></i></div>
+            <div class="icon-btn active-dropdown-btn"><i class="fas fa-caret-down"></i></div>
+
+            <!-- Settings dropdown overlay moved to nav-right -->
+            <div class="settings-dropdown">
+                <div class="dropdown-profile">
+                    <img src="c:\Users\HP\Pictures\20250804_132150.jpg" alt="Profile">
+                    <div>
+                        <span class="dropdown-name">MastiAeena</span>
+                        <span class="dropdown-sub">See Your Profile</span>
                     </div>
                 </div>
-                
-                <div class="right-section">
-                    <h2>Connect with friends and the world around you on Facebook.</h2>
-                    
-                    <ul class="features">
-                        <li>
-                            <div class="icon-wrap">
-                                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#a4b3c9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4"></path>
-                                    <polyline points="14 2 14 8 20 8"></polyline>
-                                    <path d="M2 15h10"></path>
-                                    <path d="M2 18h10"></path>
-                                    <path d="M2 12h10"></path>
-                                </svg>
-                            </div>
-                            <div class="feature-text"><strong>See photos and updates</strong> from friends in News Feed.</div>
-                        </li>
-                        <li>
-                            <div class="icon-wrap">
-                                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#a4b3c9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                                    <line x1="8" y1="21" x2="16" y2="21"></line>
-                                    <line x1="12" y1="17" x2="12" y2="21"></line>
-                                    <polygon points="12 5 13.5 8.5 17 9 14.5 11.5 15 15 12 13.5 9 15 9.5 11.5 7 9 10.5 8.5 12 5"></polygon>
-                                </svg>
-                            </div>
-                            <div class="feature-text"><strong>Share what's new</strong> in your life on your Timeline.</div>
-                        </li>
-                        <li>
-                            <div class="icon-wrap">
-                                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#a4b3c9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="12" cy="7" r="3"></circle>
-                                    <circle cx="7" cy="18" r="3"></circle>
-                                    <circle cx="17" cy="18" r="3"></circle>
-                                    <line x1="10.5" y1="9.5" x2="8.5" y2="15.5"></line>
-                                    <line x1="13.5" y1="9.5" x2="15.5" y2="15.5"></line>
-                                    <line x1="10" y1="18" x2="14" y2="18"></line>
-                                </svg>
-                            </div>
-                            <div class="feature-text"><strong>Find more</strong> of what you're looking for with Facebook Search.</div>
-                        </li>
-                    </ul>
+                <hr>
+                <div class="dropdown-item">
+                    <div class="icon-circle"><i class="fas fa-cog"></i></div>
+                    <span>Settings & Privacy</span>
+                    <i class="fas fa-chevron-right arrow-right"></i>
+                </div>
+                <div class="dropdown-item">
+                    <div class="icon-circle"><i class="fas fa-question-circle"></i></div>
+                    <span>Help & Support</span>
+                    <i class="fas fa-chevron-right arrow-right"></i>
+                </div>
+                <div class="dropdown-item">
+                    <div class="icon-circle"><i class="fas fa-moon"></i></div>
+                    <span>Dark Mode</span>
+                    <div class="toggle-switch"></div>
+                </div>
+                <div class="dropdown-item">
+                    <div class="icon-circle"><i class="fas fa-arrow-left"></i></div>
+                    <span>Switch to Classic Facebook</span>
+                </div>
+                <div class="dropdown-item">
+                    <div class="icon-circle"><i class="fas fa-exclamation-circle"></i></div>
+                    <span>Send Feedback</span>
+                </div>
+                <div class="dropdown-item">
+                    <div class="icon-circle"><i class="fas fa-sign-out-alt"></i></div>
+                    <span>Log Out</span>
+                </div>
+                <div class="dropdown-footer">
+                    Privacy · Terms · Advertising · Ad Choices · Cookies · More · Facebook © 2019
                 </div>
             </div>
-        </main>
-        
-        <footer>
-            <div class="footer-container">
-                <ul class="languages">
-                    <li>English (US)</li>
-                    <li><a href="#">ភាសាខ្មែរ</a></li>
-                    <li><a href="#">Français (France)</a></li>
-                    <li><a href="#">Tiếng Việt</a></li>
-                    <li><a href="#">中文(简体)</a></li>
-                    <li><a href="#">ภาษาไทย</a></li>
-                    <li><a href="#">한국어</a></li>
-                    <li><a href="#">日本語</a></li>
-                    <li><a href="#">Español</a></li>
-                    <li><a href="#">Português (Brasil)</a></li>
-                    <li><a href="#">Deutsch</a></li>
-                    <li><button class="more-languages" aria-label="More languages">+</button></li>
-                </ul>
-                
-                <div class="footer-divider"></div>
-                
-                <ul class="footer-links">
-                    <li><a href="#">Sign Up</a></li>
-                    <li><a href="#">Log In</a></li>
-                    <li><a href="#">Messenger</a></li>
-                    <li><a href="#">Facebook Lite</a></li>
-                    <li><a href="#">Mobile</a></li>
-                    <li><a href="#">Find Friends</a></li>
-                    <li><a href="#">People</a></li>
-                    <li><a href="#">Pages</a></li>
-                    <li><a href="#">Video Interests</a></li>
-                    <li><a href="#">Places</a></li>
-                    <li><a href="#">Games</a></li>
-                    <li><a href="#">Locations</a></li>
-                    <li><a href="#">Marketplace</a></li>
-                    <li><a href="#">Groups</a></li>
-                    <li><a href="#">Instagram</a></li>
-                    <li><a href="#">Local</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Create Ad</a></li>
-                    <li><a href="#">Create Page</a></li>
-                    <li><a href="#">Developers</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Privacy</a></li>
-                    <li><a href="#">Cookies</a></li>
-                    <li><a href="#">Ad Choices</a></li>
-                    <li><a href="#">Terms</a></li>
-                    <li><a href="#">Help</a></li>
-                </ul>
-                <div class="copyright">
-                    Facebook © 2018
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <div class="main-container">
+        <!-- Left Sidebar -->
+        <div class="left-sidebar">
+            <div class="sidebar-item">
+                <img src="c:\Users\HP\Pictures\20250804_132150.jpg" alt="Profile">
+                <span>MastiAeena</span>
+            </div>
+            <div class="sidebar-item">
+                <i class="fas fa-tv" style="color: #2381fa;"></i>
+                <span>Watch</span>
+            </div>
+            <div class="sidebar-item">
+                <i class="fas fa-calendar-alt" style="color: #f02849;"></i>
+                <span>Events</span>
+            </div>
+            <div class="sidebar-item">
+                <i class="fas fa-user-friends" style="color: #1b74e4;"></i>
+                <span>Friends</span>
+            </div>
+            <div class="sidebar-item">
+                <i class="fas fa-clock" style="color: #1b74e4;"></i>
+                <span>Memories</span>
+            </div>
+            <div class="sidebar-item more">
+                <i class="fas fa-chevron-down"></i>
+                <span>See More</span>
+            </div>
+
+            <hr>
+
+            <h4>Shortcuts</h4>
+            <div class="sidebar-item">
+                <img src="https://picsum.photos/30/30?random=1" alt="Shortcut">
+                <span>Kitten's for adoption</span>
+            </div>
+            <div class="sidebar-item">
+                <img src="https://picsum.photos/30/30?random=2" alt="Shortcut">
+                <span>Best cafe's in isb</span>
+            </div>
+            <div class="sidebar-item">
+                <img src="https://picsum.photos/30/30?random=3" alt="Shortcut">
+                <span>H9 hafta bazar</span>
+            </div>
+            <div class="sidebar-item">
+                <img src="https://picsum.photos/30/30?random=4" alt="Shortcut">
+                <span>Movie club Isb</span>
+            </div>
+            <div class="sidebar-item">
+                <img src="https://picsum.photos/30/30?random=5" alt="Shortcut">
+                <span>Best Hidden Hiking Trails</span>
+            </div>
+            <div class="sidebar-item more">
+                <i class="fas fa-chevron-down"></i>
+                <span>See More</span>
+            </div>
+        </div>
+
+        <!-- Middle Content (Feed) -->
+        <div class="feed-content">
+            <!-- Stories -->
+            <div class="stories-container">
+                <div class="story create-story">
+                    <img src="c:\Users\HP\Pictures\20250804_132150.jpg" alt="Story" class="story-bg">
+                    <div class="create-btn"><i class="fas fa-plus"></i></div>
+                    <span class="story-text">Add to Story</span>
+                </div>
+                <div class="story">
+                    <img src="c:\Users\HP\Pictures\20250329_190549.jpg" alt="Story" class="story-bg">
+                    <img src="c:\Users\HP\Pictures\20250327_105647.jpg" alt="User" class="story-profile">
+                    <span class="story-text">ChotiAdina</span>
+                </div>
+                <div class="story">
+                    <img src="c:\Users\HP\Pictures\20251114_225650.jpg" alt="Story" class="story-bg">
+                    <img src="c:\Users\HP\Pictures\20250930_120157.jpg" alt="User" class="story-profile">
+                    <span class="story-text">LoserHania</span>
+                </div>
+                <div class="story">
+                    <img src="c:\Users\HP\Pictures\20241017_220634.jpg" alt="Story" class="story-bg">
+                    <img src="c:\Users\HP\Pictures\IMAGE_FILE_CACHE.jpg" alt="User" class="story-profile">
+                    <span class="story-text">RagebaiterBilal</span>
+                </div>
+                <div class="story">
+                    <img src="c:\Users\HP\Pictures\20240429_161531.jpg" alt="Story" class="story-bg">
+                    <img src="c:\Users\HP\Pictures\IMG_4888.JPG" alt="User" class="story-profile">
+                    <span class="story-text">PookieAhmed</span>
+                </div>
+                <div class="story-next">
+                    <i class="fas fa-arrow-right"></i>
                 </div>
             </div>
-        </footer>
+
+            <!-- Create Post -->
+            <div class="create-post">
+                <div class="create-post-top">
+                    <img src="c:\Users\HP\Pictures\20250804_132150.jpg" alt="Profile">
+                    <input type="text" placeholder="What's on your mind, MastiAeena?">
+                </div>
+                <hr>
+                <div class="create-post-bottom">
+                    <div class="action-btn">
+                        <i class="fas fa-video" style="color: #f3425f;"></i>
+                        <span>Live Video</span>
+                    </div>
+                    <div class="action-btn">
+                        <i class="fas fa-images" style="color: #45bd62;"></i>
+                        <span>Photo/Video</span>
+                    </div>
+                    <div class="action-btn">
+                        <i class="far fa-smile" style="color: #f7b928;"></i>
+                        <span>Feeling/Activity</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Posts (Funny Cat Memes) -->
+            <!-- Post 1 -->
+            <div class="post">
+                <div class="post-top">
+                    <div class="post-user-info">
+                        <img src="c:\Users\HP\Pictures\20250327_105647.jpg" alt="Profile">
+                        <div>
+                            <span class="user-name">ChotiAdina</span>
+                            <span class="post-time">5 hrs &middot; <i class="fas fa-user-friends"></i></span>
+                        </div>
+                    </div>
+                    <i class="fas fa-ellipsis-h"></i>
+                </div>
+
+                <img src="c:\Users\HP\Downloads\A Ray of Sunshine in the Form of 23 Fuzzy Feline___.jpg"
+                    alt="Funny Cat Meme" class="post-image">
+                <div class="post-bottom">
+                    <div class="reactions">
+                        <i class="fas fa-thumbs-up" style="color: #1b74e4; background: white; border-radius: 50%;"></i>
+                        <i class="fas fa-heart" style="color: #f3425f; background: white; border-radius: 50%;"></i>
+                        <span> 2.5K</span>
+                    </div>
+                    <div class="comments-shares">
+                        <span>420 Comments</span>
+                        <span>98 Shares</span>
+                    </div>
+                </div>
+                <hr style="margin: 10px 15px; border-color: #e4e6eb;">
+                <div class="post-actions">
+                    <div class="action-btn"><i class="far fa-thumbs-up"></i> Like</div>
+                    <div class="action-btn"><i class="far fa-comment-alt"></i> Comment</div>
+                    <div class="action-btn"><i class="fas fa-share"></i> Share</div>
+                </div>
+            </div>
+
+            <!-- Post 2 -->
+            <div class="post">
+                <div class="post-top">
+                    <div class="post-user-info">
+                        <img src="c:\Users\HP\Pictures\20250930_120157.jpg" alt="Profile">
+                        <div>
+                            <span class="user-name">LoserHania</span>
+                            <span class="post-time">10 hrs &middot; <i class="fas fa-globe-americas"></i></span>
+                        </div>
+                    </div>
+                    <i class="fas fa-ellipsis-h"></i>
+                </div>
+
+                <img src="c:\Users\HP\Downloads\oop.jpg" alt=" Meme" class="post-image">
+                <div class="post-bottom">
+                    <div class="reactions">
+                        <i class="fas fa-thumbs-up" style="color: #1b74e4;"></i>
+                        <span> 1.2K</span>
+                    </div>
+                    <div class="comments-shares">
+                        <span>150 Comments</span>
+                        <span>12 Shares</span>
+                    </div>
+                </div>
+                <hr style="margin: 10px 15px; border-color: #e4e6eb;">
+                <div class="post-actions">
+                    <div class="action-btn"><i class="far fa-thumbs-up"></i> Like</div>
+                    <div class="action-btn"><i class="far fa-comment-alt"></i> Comment</div>
+                    <div class="action-btn"><i class="fas fa-share"></i> Share</div>
+                </div>
+            </div>
+
+            <!-- Post 3 -->
+            <div class="post">
+                <div class="post-top">
+                    <div class="post-user-info">
+                        <img src="c:\Users\HP\Pictures\IMAGE_FILE_CACHE.jpg" alt="Profile">
+                        <div>
+                            <span class="user-name">RagebaiterBilal</span>
+                            <span class="post-time">Yesterday at 8:45 PM &middot; <i
+                                    class="fas fa-user-friends"></i></span>
+                        </div>
+                    </div>
+                    <i class="fas fa-ellipsis-h"></i>
+                </div>
+                <div class="post-text">
+                    Me and the only two people i like in uni.
+                </div>
+                <img src="c:\Users\HP\Downloads\скибидосики.jpg" alt="Life Update Meme" class="post-image">
+                <div class="post-bottom">
+                    <div class="reactions">
+                        <i class="fas fa-thumbs-up" style="color: #1b74e4;"></i>
+                        <i class="fas fa-laugh-squint" style="color: #f7b928;"></i>
+                        <span> 8.9K</span>
+                    </div>
+                    <div class="comments-shares">
+                        <span>1.1K Comments</span>
+                        <span>456 Shares</span>
+                    </div>
+                </div>
+                <hr style="margin: 10px 15px; border-color: #e4e6eb;">
+                <div class="post-actions">
+                    <div class="action-btn"><i class="far fa-thumbs-up"></i> Like</div>
+                    <div class="action-btn"><i class="far fa-comment-alt"></i> Comment</div>
+                    <div class="action-btn"><i class="fas fa-share"></i> Share</div>
+                </div>
+            </div>
+
+            <div style="text-align: center; color: #65676b; padding: 20px; font-weight: 500;">
+                No more posts to show right now.
+            </div>
+
+        </div>
+
+        <!-- Right Sidebar (including the dropdown mockup shown in picture) -->
+        <div class="right-sidebar">
+            <!-- Contacts List -->
+            <h4>Contacts</h4>
+            <div class="sidebar-item">
+                <img src="https://randomuser.me/api/portraits/men/15.jpg" alt="Contact">
+                <span>ChotiAdina</span>
+            </div>
+            <div class="sidebar-item">
+                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Contact">
+                <span>LoserHania</span>
+            </div>
+            <div class="sidebar-item">
+                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Contact">
+                <span>RagebaiterBilal</span>
+            </div>
+            <div class="sidebar-item">
+                <img src="https://randomuser.me/api/portraits/women/24.jpg" alt="Contact">
+                <span>PookieAhmed</span>
+            </div>
+
+            <div class="new-message-btn">
+                <i class="fas fa-edit"></i>
+            </div>
+        </div>
     </div>
 </body>
+
 </html>
