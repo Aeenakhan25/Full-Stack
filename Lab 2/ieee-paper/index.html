@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IEEE Research Paper</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header class="header">
+            <div class="title">
+                Blockchain Technology for Secure and Transparent Supply Chains
+            </div>
+
+            <div class="authors">
+                <span class="author-name">Ali Khan<sup>1</sup></span>
+                <span class="author-name">Hamza Siddiqui<sup>2</sup></span>
+                <span class="author-name">Ayesha Noor<sup>1</sup></span>
+            </div>
+
+            <div class="affiliations">
+                <div class="affiliation">
+                    <sup>1</sup> Department of Computer Science, University of Engineering and Technology, Lahore,
+                    Pakistan
+                </div>
+
+                <div class="affiliation">
+                    <sup>2</sup> School of Information Technology, Institute of Business Administration, Karachi,
+                    Pakistan
+                </div>
+            </div>
+        </header>
+
+
+        <section class="abstract-section">
+            <div class="abstract-title">Abstract</div>
+
+            <div class="abstract-text">
+                This paper explores the application of blockchain technology to enhance the security, transparency, and traceability of modern supply chains. By implementing a decentralized ledger system, we address the critical challenges of counterfeit goods, opaque logistics, and data tampering. Our proposed architecture demonstrates significant improvements in trust and verification speed compared to traditional centralized systems.
+            </div>
+
+            <div class="keywords">
+                <strong>Keywords:</strong>
+                Blockchain, Supply Chain Management, Smart Contracts,
+                Decentralization, Security, Traceability
+            </div>
+        </section>
+
+
+        <main class="content">
+
+            <div class="column">
+
+                <section class="section">
+                    <div class="section-title">
+                        <span class="section-number">I.</span> Introduction
+                    </div>
+
+                    <p class="section-text">
+                        Modern supply chains have grown exceedingly complex, often spanning multiple continents and involving numerous untrusted stakeholders [1]. This complexity introduces significant vulnerabilities, including the infiltration of counterfeit products and data tampering across logistics networks [2].
+                    </p>
+
+                    <p class="section-text">
+                        Blockchain technology offers a paradigm shift by providing an immutable, distributed ledger that records transactions transparently. This paper proposes a novel blockchain-based framework that leverages smart contracts to automate verification and enforce security constraints across the entire supply chain lifecycle [3].
+                    </p>
+                </section>
+
+
+                <section class="section">
+                    <div class="section-title">
+                        <span class="section-number">II.</span> Literature Review
+                    </div>
+
+                    <p class="section-text">
+                        Recent literature highlights the growing intersection of decentralized technologies and logistics. Nakamoto's foundational work on Bitcoin [4] established the core mechanics of distributed consensus, which researchers have since adapted for non-financial applications.
+                    </p>
+
+                    <p class="section-text">
+                        Studies by Christidis and Devetsikiotis [5] demonstrate how smart contracts can automate agreements between IoT devices in a supply chain context. However, achieving high throughput in these systems without compromising security remains a heavily debated challenge in current research.
+                    </p>
+                </section>
+
+
+                <section class="section">
+                    <table class="table">
+                        <caption class="table-caption">
+                            TABLE I. Comparison of Supply Chain Architectures
+                        </caption>
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Traditional</th>
+                                <th>Blockchain-based</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Data Storage</td>
+                                <td>Centralized DB</td>
+                                <td>Distributed Ledger</td>
+                            </tr>
+                            <tr>
+                                <td>Transparency</td>
+                                <td>Low / Siloed</td>
+                                <td>High / Immutable</td>
+                            </tr>
+                            <tr>
+                                <td>Tamper Resistance</td>
+                                <td>Vulnerable</td>
+                                <td>Cryptographically Secure</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+            </div>
+
+
+            <div class="column">
+
+                <section class="section">
+                    <div class="section-title">
+                        <span class="section-number">III.</span> Methodology
+                    </div>
+
+                    <div class="subsection-title">
+                        A. Distributed Ledger Architecture
+                    </div>
+
+                    <p class="section-text">
+                        Our framework utilizes a permissioned blockchain network, allowing only verified stakeholders (manufacturers, distributors, and retailers) to participate in consensus. Each product is assigned a unique cryptographic token upon creation.
+                    </p>
+
+                    <div class="subsection-title">
+                        B. Smart Contract Implementation
+                    </div>
+
+                    <p class="section-text">
+                        Smart contracts automatically execute state transitions when shipments are scanned at designated checkpoints. The contract verifies the digital signature of the logistics provider before updating the ledger.
+                    </p>
+
+                    <div class="subsection-title">
+                        C. Evaluation Metrics
+                    </div>
+
+                    <p class="section-text">
+                        The proposed system is evaluated based on transaction throughput (TPS), verification latency, and resistance to simulated tampering attacks.
+                    </p>
+                </section>
+
+
+                <section class="section">
+                    <table class="table">
+
+                        <caption class="table-caption">
+                            TABLE II. Network Configuration Parameters
+                        </caption>
+
+                        <thead>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Value</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Consensus Protocol</td>
+                                <td>PBFT</td>
+                            </tr>
+
+                            <tr>
+                                <td>Block Time</td>
+                                <td>2 seconds</td>
+                            </tr>
+
+                            <tr>
+                                <td>Network Nodes</td>
+                                <td>32 (Permissioned)</td>
+                            </tr>
+
+                            <tr>
+                                <td>Smart Contract Language</td>
+                                <td>Solidity</td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </section>
+
+
+                <section class="section">
+                    <div class="section-title">
+                        <span class="section-number">IV.</span> Results
+                    </div>
+
+                    <p class="section-text">
+                        Experimental results indicate that the permissioned blockchain architecture can sustain a throughput of 1,200 TPS with an average verification latency of less than 3 seconds, significantly outperforming legacy relational databases in tampering resistance.
+                    </p>
+
+                    <figure class="figure results-figure">
+                        <div class="css-chart" style="display: flex; align-items: flex-end; justify-content: space-evenly; height: 160px; border-bottom: 1px solid #333; border-left: 1px solid #333; padding-bottom: 5px; margin: 15px auto; width: 90%; max-width: 300px;">
+                            <div style="display: flex; flex-direction: column; align-items: center; width: 35%;">
+                                <div style="background-color: #ccc; width: 100%; height: 60px; border: 1px solid #333; display: flex; align-items: flex-end; justify-content: center;"><span style="font-size: 11px; margin-bottom: 4px;">450 TPS</span></div>
+                                <span style="font-size: 10px; margin-top: 5px; text-align: center;">Relational DB<br>(Baseline)</span>
+                            </div>
+                            <div style="display: flex; flex-direction: column; align-items: center; width: 35%;">
+                                <div style="background-color: #333; width: 100%; height: 140px; border: 1px solid #000; display: flex; align-items: flex-end; justify-content: center;"><span style="font-size: 11px; margin-bottom: 4px; color: white;">1,200 TPS</span></div>
+                                <span style="font-size: 10px; margin-top: 5px; text-align: center;">Blockchain<br>(PBFT)</span>
+                            </div>
+                        </div>
+
+                        <figcaption class="figure-caption">
+                            Fig. 1. Transaction throughput comparison (TPS)
+                        </figcaption>
+                    </figure>
+                </section>
+
+            </div>
+
+
+            <section class="section full-width">
+                <div class="section-title">
+                    <span class="section-number">V.</span> Conclusion and Future Work
+                </div>
+
+                <p class="section-text">
+                    This paper demonstrates that blockchain technology can effectively secure modern supply chains by providing immutable transparency and automated verification through smart contracts. Future research will explore integrating zero-knowledge proofs to protect proprietary supplier relationships while maintaining public verifiability.
+                </p>
+            </section>
+
+
+            <section class="references-section">
+
+                <div class="section-title">
+                    <span class="section-number">VI.</span> References
+                </div>
+
+                <ul class="reference-list">
+
+                    <li>
+                        <span class="cite">[1]</span>
+                        A. Rejeb, J. G. Keogh, and H. Treiblmaier, "Leveraging the Internet of Things and Blockchain Technology in Supply Chain Management," Future Internet, vol. 11, no. 7, 2019.
+                    </li>
+
+                    <li>
+                        <span class="cite">[2]</span>
+                        K. Kshetri, "1 Blockchain's roles in meeting key supply chain management objectives," International Journal of Information Management, vol. 39, pp. 80-89, 2018.
+                    </li>
+
+                    <li>
+                        <span class="cite">[3]</span>
+                        M. Kouhizadeh and J. Sarkis, "Blockchain Practices, Potentials, and Perspectives in Greening Supply Chains," Sustainability, vol. 10, no. 10, 2018.
+                    </li>
+
+                    <li>
+                        <span class="cite">[4]</span>
+                        S. Nakamoto, "Bitcoin: A Peer-to-Peer Electronic Cash System," Decentralized Business Review, 2008.
+                    </li>
+
+                    <li>
+                        <span class="cite">[5]</span>
+                        K. Christidis and M. Devetsikiotis, "Blockchains and Smart Contracts for the Internet of Things," IEEE Access, vol. 4, pp. 2292-2303, 2016.
+                    </li>
+
+                </ul>
+
+            </section>
+
+        </main>
+
+    </div>
+
+</body>
+
+</html>

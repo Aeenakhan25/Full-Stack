@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Include FontAwesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Top Navigation -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg" alt="Facebook Logo"
+                class="logo">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search Facebook">
+            </div>
+        </div>
+
+        <div class="nav-center">
+            <div class="nav-icon active">
+                <i class="fas fa-home"></i>
+            </div>
+            <div class="nav-icon">
+                <i class="fas fa-tv"></i>
+            </div>
+            <div class="nav-icon">
+                <i class="fas fa-store"></i>
+            </div>
+            <div class="nav-icon">
+                <i class="fas fa-users"></i>
+            </div>
+            <div class="nav-icon">
+                <i class="fas fa-gamepad"></i>
+            </div>
+        </div>
+
+        <div class="nav-right">
+            <div class="profile-nav">
+                <img src="c:\Users\HP\Pictures\20250804_132150.jpg" alt="Profile">
+                <span>MastiAeena</span>
+            </div>
+            <div class="icon-btn"><i class="fas fa-plus"></i></div>
+            <div class="icon-btn"><i class="fab fa-facebook-messenger"></i></div>
+            <div class="icon-btn"><i class="fas fa-bell"></i></div>
+            <div class="icon-btn active-dropdown-btn"><i class="fas fa-caret-down"></i></div>
+
+            <!-- Settings dropdown overlay moved to nav-right -->
+            <div class="settings-dropdown">
+                <div class="dropdown-profile">
+                    <img src="c:\Users\HP\Pictures\20250804_132150.jpg" alt="Profile">
+                    <div>
+                        <span class="dropdown-name">MastiAeena</span>
+                        <span class="dropdown-sub">See Your Profile</span>
+                    </div>
+                </div>
+                <hr>
+                <div class="dropdown-item">
+                    <div class="icon-circle"><i class="fas fa-cog"></i></div>
+                    <span>Settings & Privacy</span>
+                    <i class="fas fa-chevron-right arrow-right"></i>
+                </div>
+                <div class="dropdown-item">
+                    <div class="icon-circle"><i class="fas fa-question-circle"></i></div>
+                    <span>Help & Support</span>
+                    <i class="fas fa-chevron-right arrow-right"></i>
+                </div>
+                <div class="dropdown-item">
+                    <div class="icon-circle"><i class="fas fa-moon"></i></div>
+                    <span>Dark Mode</span>
+                    <div class="toggle-switch"></div>
+                </div>
+                <div class="dropdown-item">
+                    <div class="icon-circle"><i class="fas fa-arrow-left"></i></div>
+                    <span>Switch to Classic Facebook</span>
+                </div>
+                <div class="dropdown-item">
+                    <div class="icon-circle"><i class="fas fa-exclamation-circle"></i></div>
+                    <span>Send Feedback</span>
+                </div>
+                <div class="dropdown-item">
+                    <div class="icon-circle"><i class="fas fa-sign-out-alt"></i></div>
+                    <span>Log Out</span>
+                </div>
+                <div class="dropdown-footer">
+                    Privacy · Terms · Advertising · Ad Choices · Cookies · More · Facebook © 2019
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <div class="main-container">
+        <!-- Left Sidebar -->
+        <div class="left-sidebar">
+            <div class="sidebar-item">
+                <img src="c:\Users\HP\Pictures\20250804_132150.jpg" alt="Profile">
+                <span>MastiAeena</span>
+            </div>
+            <div class="sidebar-item">
+                <i class="fas fa-tv" style="color: #2381fa;"></i>
+                <span>Watch</span>
+            </div>
+            <div class="sidebar-item">
+                <i class="fas fa-calendar-alt" style="color: #f02849;"></i>
+                <span>Events</span>
+            </div>
+            <div class="sidebar-item">
+                <i class="fas fa-user-friends" style="color: #1b74e4;"></i>
+                <span>Friends</span>
+            </div>
+            <div class="sidebar-item">
+                <i class="fas fa-clock" style="color: #1b74e4;"></i>
+                <span>Memories</span>
+            </div>
+            <div class="sidebar-item more">
+                <i class="fas fa-chevron-down"></i>
+                <span>See More</span>
+            </div>
+
+            <hr>
+
+            <h4>Shortcuts</h4>
+            <div class="sidebar-item">
+                <img src="https://picsum.photos/30/30?random=1" alt="Shortcut">
+                <span>Kitten's for adoption</span>
+            </div>
+            <div class="sidebar-item">
+                <img src="https://picsum.photos/30/30?random=2" alt="Shortcut">
+                <span>Best cafe's in isb</span>
+            </div>
+            <div class="sidebar-item">
+                <img src="https://picsum.photos/30/30?random=3" alt="Shortcut">
+                <span>H9 hafta bazar</span>
+            </div>
+            <div class="sidebar-item">
+                <img src="https://picsum.photos/30/30?random=4" alt="Shortcut">
+                <span>Movie club Isb</span>
+            </div>
+            <div class="sidebar-item">
+                <img src="https://picsum.photos/30/30?random=5" alt="Shortcut">
+                <span>Best Hidden Hiking Trails</span>
+            </div>
+            <div class="sidebar-item more">
+                <i class="fas fa-chevron-down"></i>
+                <span>See More</span>
+            </div>
+        </div>
+
+        <!-- Middle Content (Feed) -->
+        <div class="feed-content">
+            <!-- Stories -->
+            <div class="stories-container">
+                <div class="story create-story">
+                    <img src="c:\Users\HP\Pictures\20250804_132150.jpg" alt="Story" class="story-bg">
+                    <div class="create-btn"><i class="fas fa-plus"></i></div>
+                    <span class="story-text">Add to Story</span>
+                </div>
+                <div class="story">
+                    <img src="c:\Users\HP\Pictures\20250329_190549.jpg" alt="Story" class="story-bg">
+                    <img src="c:\Users\HP\Pictures\20250327_105647.jpg" alt="User" class="story-profile">
+                    <span class="story-text">ChotiAdina</span>
+                </div>
+                <div class="story">
+                    <img src="c:\Users\HP\Pictures\20251114_225650.jpg" alt="Story" class="story-bg">
+                    <img src="c:\Users\HP\Pictures\20250930_120157.jpg" alt="User" class="story-profile">
+                    <span class="story-text">LoserHania</span>
+                </div>
+                <div class="story">
+                    <img src="c:\Users\HP\Pictures\20241017_220634.jpg" alt="Story" class="story-bg">
+                    <img src="c:\Users\HP\Pictures\IMAGE_FILE_CACHE.jpg" alt="User" class="story-profile">
+                    <span class="story-text">RagebaiterBilal</span>
+                </div>
+                <div class="story">
+                    <img src="c:\Users\HP\Pictures\20240429_161531.jpg" alt="Story" class="story-bg">
+                    <img src="c:\Users\HP\Pictures\IMG_4888.JPG" alt="User" class="story-profile">
+                    <span class="story-text">PookieAhmed</span>
+                </div>
+                <div class="story-next">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+            </div>
+
+            <!-- Create Post -->
+            <div class="create-post">
+                <div class="create-post-top">
+                    <img src="c:\Users\HP\Pictures\20250804_132150.jpg" alt="Profile">
+                    <input type="text" placeholder="What's on your mind, MastiAeena?">
+                </div>
+                <hr>
+                <div class="create-post-bottom">
+                    <div class="action-btn">
+                        <i class="fas fa-video" style="color: #f3425f;"></i>
+                        <span>Live Video</span>
+                    </div>
+                    <div class="action-btn">
+                        <i class="fas fa-images" style="color: #45bd62;"></i>
+                        <span>Photo/Video</span>
+                    </div>
+                    <div class="action-btn">
+                        <i class="far fa-smile" style="color: #f7b928;"></i>
+                        <span>Feeling/Activity</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Posts (Funny Cat Memes) -->
+            <!-- Post 1 -->
+            <div class="post">
+                <div class="post-top">
+                    <div class="post-user-info">
+                        <img src="c:\Users\HP\Pictures\20250327_105647.jpg" alt="Profile">
+                        <div>
+                            <span class="user-name">ChotiAdina</span>
+                            <span class="post-time">5 hrs &middot; <i class="fas fa-user-friends"></i></span>
+                        </div>
+                    </div>
+                    <i class="fas fa-ellipsis-h"></i>
+                </div>
+
+                <img src="c:\Users\HP\Downloads\A Ray of Sunshine in the Form of 23 Fuzzy Feline___.jpg"
+                    alt="Funny Cat Meme" class="post-image">
+                <div class="post-bottom">
+                    <div class="reactions">
+                        <i class="fas fa-thumbs-up" style="color: #1b74e4; background: white; border-radius: 50%;"></i>
+                        <i class="fas fa-heart" style="color: #f3425f; background: white; border-radius: 50%;"></i>
+                        <span> 2.5K</span>
+                    </div>
+                    <div class="comments-shares">
+                        <span>420 Comments</span>
+                        <span>98 Shares</span>
+                    </div>
+                </div>
+                <hr style="margin: 10px 15px; border-color: #e4e6eb;">
+                <div class="post-actions">
+                    <div class="action-btn"><i class="far fa-thumbs-up"></i> Like</div>
+                    <div class="action-btn"><i class="far fa-comment-alt"></i> Comment</div>
+                    <div class="action-btn"><i class="fas fa-share"></i> Share</div>
+                </div>
+            </div>
+
+            <!-- Post 2 -->
+            <div class="post">
+                <div class="post-top">
+                    <div class="post-user-info">
+                        <img src="c:\Users\HP\Pictures\20250930_120157.jpg" alt="Profile">
+                        <div>
+                            <span class="user-name">LoserHania</span>
+                            <span class="post-time">10 hrs &middot; <i class="fas fa-globe-americas"></i></span>
+                        </div>
+                    </div>
+                    <i class="fas fa-ellipsis-h"></i>
+                </div>
+
+                <img src="c:\Users\HP\Downloads\oop.jpg" alt=" Meme" class="post-image">
+                <div class="post-bottom">
+                    <div class="reactions">
+                        <i class="fas fa-thumbs-up" style="color: #1b74e4;"></i>
+                        <span> 1.2K</span>
+                    </div>
+                    <div class="comments-shares">
+                        <span>150 Comments</span>
+                        <span>12 Shares</span>
+                    </div>
+                </div>
+                <hr style="margin: 10px 15px; border-color: #e4e6eb;">
+                <div class="post-actions">
+                    <div class="action-btn"><i class="far fa-thumbs-up"></i> Like</div>
+                    <div class="action-btn"><i class="far fa-comment-alt"></i> Comment</div>
+                    <div class="action-btn"><i class="fas fa-share"></i> Share</div>
+                </div>
+            </div>
+
+            <!-- Post 3 -->
+            <div class="post">
+                <div class="post-top">
+                    <div class="post-user-info">
+                        <img src="c:\Users\HP\Pictures\IMAGE_FILE_CACHE.jpg" alt="Profile">
+                        <div>
+                            <span class="user-name">RagebaiterBilal</span>
+                            <span class="post-time">Yesterday at 8:45 PM &middot; <i
+                                    class="fas fa-user-friends"></i></span>
+                        </div>
+                    </div>
+                    <i class="fas fa-ellipsis-h"></i>
+                </div>
+                <div class="post-text">
+                    Me and the only two people i like in uni.
+                </div>
+                <img src="c:\Users\HP\Downloads\скибидосики.jpg" alt="Life Update Meme" class="post-image">
+                <div class="post-bottom">
+                    <div class="reactions">
+                        <i class="fas fa-thumbs-up" style="color: #1b74e4;"></i>
+                        <i class="fas fa-laugh-squint" style="color: #f7b928;"></i>
+                        <span> 8.9K</span>
+                    </div>
+                    <div class="comments-shares">
+                        <span>1.1K Comments</span>
+                        <span>456 Shares</span>
+                    </div>
+                </div>
+                <hr style="margin: 10px 15px; border-color: #e4e6eb;">
+                <div class="post-actions">
+                    <div class="action-btn"><i class="far fa-thumbs-up"></i> Like</div>
+                    <div class="action-btn"><i class="far fa-comment-alt"></i> Comment</div>
+                    <div class="action-btn"><i class="fas fa-share"></i> Share</div>
+                </div>
+            </div>
+
+            <div style="text-align: center; color: #65676b; padding: 20px; font-weight: 500;">
+                No more posts to show right now.
+            </div>
+
+        </div>
+
+        <!-- Right Sidebar (including the dropdown mockup shown in picture) -->
+        <div class="right-sidebar">
+            <!-- Contacts List -->
+            <h4>Contacts</h4>
+            <div class="sidebar-item">
+                <img src="https://randomuser.me/api/portraits/men/15.jpg" alt="Contact">
+                <span>ChotiAdina</span>
+            </div>
+            <div class="sidebar-item">
+                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Contact">
+                <span>LoserHania</span>
+            </div>
+            <div class="sidebar-item">
+                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Contact">
+                <span>RagebaiterBilal</span>
+            </div>
+            <div class="sidebar-item">
+                <img src="https://randomuser.me/api/portraits/women/24.jpg" alt="Contact">
+                <span>PookieAhmed</span>
+            </div>
+
+            <div class="new-message-btn">
+                <i class="fas fa-edit"></i>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
