@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Timetable</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .time-main { font-weight: bold; font-size: 0.9rem; }
+        .time-sub { font-size: 0.75rem; color: #ccc; }
+        .cell-wrapper { display: flex; flex-direction: column; justify-content: center; height: 100%; min-height: 100px;}
+        .teacher { font-weight: bold; font-size: 0.85rem; color: #0d6efd; }
+        .subject { font-weight: bold; margin: 4px 0; font-size: 0.95rem; }
+        .room { font-size: 0.8rem; color: #6c757d; }
+        .lab-subject { color: #dc3545; }
+        .day-cell { font-weight: bold; font-size: 1.2rem; background-color: #f8f9fa !important; vertical-align: middle; }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container-fluid py-5 px-4">
+        <div class="text-center mb-4">
+            <h1 class="display-6 fw-bold text-primary">BSCS-V-A (Shift-I)</h1>
+            <p class="text-secondary fs-5">Air Uni</p>
+        </div>
+        
+        <div class="table-responsive shadow-sm bg-white rounded p-3">
+            <table class="table table-bordered table-hover text-center align-middle mb-0">
+                <thead class="table-dark align-middle">
+                    <tr>
+                        <th style="width: 50px;"></th>
+                        <th>
+                            <div class="time-main">08:00am-09:00am</div>
+                            <div class="time-sub">8:00 - 9:00</div>
+                        </th>
+                        <th>
+                            <div class="time-main">09:00am-10:00am</div>
+                            <div class="time-sub">9:00 - 10:00</div>
+                        </th>
+                        <th>
+                            <div class="time-main">10:00am-11:00am</div>
+                            <div class="time-sub">10:00 - 11:00</div>
+                        </th>
+                        <th>
+                            <div class="time-main">11:00am-12:00pm</div>
+                            <div class="time-sub">11:00 - 12:00</div>
+                        </th>
+                        <th>
+                            <div class="time-main">12:00pm-01:00pm</div>
+                            <div class="time-sub">12:00 - 1:00</div>
+                        </th>
+                        <th>
+                            <div class="time-main">01:00pm-02:00pm</div>
+                            <div class="time-sub">1:00 - 2:00</div>
+                        </th>
+                        <th>
+                            <div class="time-main">02:00pm-03:00pm</div>
+                            <div class="time-sub">2:00 - 3:00</div>
+                        </th>
+                        <th>
+                            <div class="time-main">03:00pm-04:00pm</div>
+                            <div class="time-sub">3:00 - 4:00</div>
+                        </th>
+                        <th>
+                            <div class="time-main">04:00pm-05:00pm</div>
+                            <div class="time-sub">4:00 - 5:00</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- MONDAY -->
+                    <tr>
+                        <td class="day-cell table-light">Mo</td>
+                        <td>
+                            <div class="cell-wrapper">
+                                <span class="teacher">CS-Ms Maryam Wardah</span>
+                                <span class="subject text-dark">Artificial<br>Intelligence</span>
+                                <span class="room">C-205 (Shift-I)</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cell-wrapper">
+                                <span class="teacher">CS-Ms Warda Aslam<br>CS-Ms Eeman Fatima</span>
+                                <span class="subject text-dark">Operating<br>Systems</span>
+                                <span class="room">Lecture Hall 01</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cell-wrapper">
+                                <span class="teacher">CS-Mr Muhammad Junaid<br>Nazar</span>
+                                <span class="subject text-dark">Design and<br>Analysis of<br>Algorithms</span>
+                                <span class="room">C-202 (Shift-I)</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cell-wrapper">
+                                <span class="teacher">Maths-Dr Waqas Sarwar<br>Abbasi</span>
+                                <span class="subject text-dark">Linear Algebra</span>
+                                <span class="room">C-301 (Shift-I)</span>
+                            </div>
+                        </td>
+                        <td class="bg-light"></td>
+                        <td>
+                            <div class="cell-wrapper">
+                                <span class="teacher">AUSOM-Ms Ayesha<br>Munir-VFM</span>
+                                <span class="subject text-dark">Introduction to<br>Management</span>
+                                <span class="room">C-303 (Shift-I)</span>
+                            </div>
+                        </td>
+                        <td class="bg-light"></td>
+                        <td class="bg-light"></td>
+                        <td class="bg-light"></td>
+                    </tr>
+                    <!-- TUESDAY -->
+                    <tr>
+                        <td class="day-cell table-light">Tu</td>
+                        <td colspan="3" class="table-warning">
+                            <div class="cell-wrapper">
+                                <span class="teacher">CS-Ms Maryam Wardah</span>
+                                <span class="subject lab-subject">Artificial Intelligence Lab</span>
+                                <span class="room">Lab 5 A Block (Shift-I)</span>
+                            </div>
+                        </td>
+                        <td class="bg-light"></td>
+                        <td>
+                            <div class="cell-wrapper">
+                                <span class="teacher">Maths-Dr Waqas Sarwar<br>Abbasi</span>
+                                <span class="subject text-dark">Linear Algebra</span>
+                                <span class="room">C-203 (Shift-I)</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cell-wrapper">
+                                <span class="teacher">CS-Mr Muhammad Junaid<br>Nazar</span>
+                                <span class="subject text-dark">Design and<br>Analysis of<br>Algorithms</span>
+                                <span class="room">C-302 (Shift-I)</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cell-wrapper">
+                                <span class="teacher">CS-Ms Warda Aslam<br>CS-Ms Eeman Fatima</span>
+                                <span class="subject text-dark">Operating<br>Systems</span>
+                                <span class="room">Lecture Hall 01</span>
+                            </div>
+                        </td>
+                        <td class="bg-light"></td>
+                        <td class="bg-light"></td>
+                    </tr>
+                    <!-- WEDNESDAY -->
+                    <tr>
+                        <td class="day-cell table-light">We</td>
+                        <td>
+                            <div class="cell-wrapper">
+                                <span class="teacher">CS-Mr Muhammad Junaid<br>Nazar</span>
+                                <span class="subject text-dark">Design and<br>Analysis of<br>Algorithms</span>
+                                <span class="room">C-302 (Shift-I)</span>
+                            </div>
+                        </td>
+                        <td class="bg-light"></td>
+                        <td class="bg-light"></td>
+                        <td colspan="3" class="table-info">
+                            <div class="cell-wrapper">
+                                <span class="teacher">CS-Ms Warda Aslam</span>
+                                <span class="subject lab-subject">Operating Systems Lab</span>
+                                <span class="room">Lab 13 C Block (3rd Floor) (Shift-I)</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cell-wrapper">
+                                <span class="teacher">CS-Mr Hafiz Obiad Ullah<br>Khan / CS-Mr Asim Ali<br>Fayyaz</span>
+                                <span class="subject text-dark">Full Stack Web<br>Development</span>
+                                <span class="room">Lecture Hall 01,<br>C-206 (Shift-I)</span>
+                            </div>
+                        </td>
+                        <td class="bg-light"></td>
+                        <td class="bg-light"></td>
+                    </tr>
+                    <!-- THURSDAY -->
+                    <tr>
+                        <td class="day-cell table-light">Th</td>
+                        <td class="bg-light"></td>
+                        <td>
+                            <div class="cell-wrapper">
+                                <span class="teacher">CS-Ms Maryam Wardah</span>
+                                <span class="subject text-dark">Artificial<br>Intelligence</span>
+                                <span class="room">C-202 (Shift-I)</span>
+                            </div>
+                        </td>
+                        <td class="bg-light"></td>
+                        <td colspan="3" class="table-success">
+                            <div class="cell-wrapper">
+                                <span class="teacher">CS-Mr Hafiz Obiad Ullah Khan</span>
+                                <span class="subject lab-subject">Full Stack Web Development Lab</span>
+                                <span class="room">Lab 5 A Block (Shift-I)</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cell-wrapper">
+                                <span class="teacher">CS-Mr Hafiz Obiad Ullah<br>Khan / CS-Mr Asim Ali<br>Fayyaz</span>
+                                <span class="subject text-dark">Full Stack Web<br>Development</span>
+                                <span class="room">Lecture Hall 01<br>C-306 (Shift-I)</span>
+                            </div>
+                        </td>
+                        <td class="bg-light"></td>
+                        <td class="bg-light"></td>
+                    </tr>
+                    <!-- FRIDAY -->
+                    <tr>
+                        <td class="day-cell table-light">Fr</td>
+                        <td class="bg-light"></td>
+                        <td class="bg-light"></td>
+                        <td>
+                            <div class="cell-wrapper">
+                                <span class="teacher">AUSOM-Ms Ayesha<br>Munir-VFM</span>
+                                <span class="subject text-dark">Introduction to<br>Management</span>
+                                <span class="room">C-302 (Shift-I)</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cell-wrapper">
+                                <span class="teacher">Maths-Dr Waqas Sarwar<br>Abbasi</span>
+                                <span class="subject text-dark">Linear Algebra</span>
+                                <span class="room">C-301 (Shift-I)</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="cell-wrapper">
+                                <span class="teacher">CS-Ms Eeman Fatima</span>
+                                <span class="subject text-dark">Advisory Class</span>
+                                <span class="room">C-202 (Shift-I)</span>
+                            </div>
+                        </td>
+                        <td class="bg-light"></td>
+                        <td class="bg-light"></td>
+                        <td class="bg-light"></td>
+                        <td class="bg-light"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

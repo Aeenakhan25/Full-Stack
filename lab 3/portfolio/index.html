@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Creative Portfolio</title>
+    <meta name="description" content="A vintage aesthetic 2-column portfolio">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400&family=Great+Vibes&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --color-sage: #9cb09b;
+            --color-sage-dark: #819180;
+            --color-cream: #f4efdf;
+            --color-cream-dark: #e8e3d3;
+            --color-charcoal: #2b2c30;
+            --color-accent: #8b4545;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            font-family: 'Inter', sans-serif;
+            color: var(--color-charcoal);
+            background-color: var(--color-charcoal);
+        }
+
+        @media (min-width: 992px) {
+            body, html { overflow: hidden; }
+            .split-column { height: 100vh; overflow-y: auto; scroll-behavior: smooth; -ms-overflow-style: none; scrollbar-width: none; }
+            .split-column::-webkit-scrollbar { display: none; }
+        }
+
+        .texture-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 10; opacity: 0.15; mix-blend-mode: multiply;
+            background-image: url('data:image/svg+xml;utf8,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
+        }
+        .global-noise { position: fixed; }
+        .vignette { position: fixed; top: 0; left: 0; width: 100%; height: 100%; box-shadow: inset 0 0 150px rgba(0, 0, 0, 0.4); pointer-events: none; z-index: 20; }
+
+        .portfolio-container { position: relative; z-index: 5; }
+
+        .left-column {
+            background: radial-gradient(circle at top left, var(--color-cream), var(--color-cream-dark));
+            border-right: 1px solid rgba(0,0,0,0.05);
+            padding: 4rem 5rem;
+            position: relative;
+        }
+
+        .right-column {
+            background: radial-gradient(circle at bottom right, var(--color-sage), var(--color-sage-dark));
+            box-shadow: -10px 0 30px rgba(0,0,0,0.05);
+            padding: 4rem 5rem;
+            position: relative;
+        }
+
+        .script-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.5rem;
+            font-weight: 400;
+            margin-bottom: -1.5rem;
+            margin-left: -5rem;
+            color: var(--color-accent);
+            transform: rotate(-5deg);
+        }
+
+        .main-title {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 5rem;
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: -2px;
+            color: var(--color-charcoal);
+        }
+
+        .profile-pic-frame {
+            width: 240px; height: 240px; border-radius: 50%;
+            margin-top: 3rem; margin-bottom: 2rem; z-index: 5;
+            border: 6px solid var(--color-cream);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            animation: slideUpFade 1.5s ease-out 0.3s forwards;
+            opacity: 0; overflow: hidden;
+            display: flex; justify-content: center; align-items: center;
+        }
+        .profile-pic { width: 135%; height: 135%; object-fit: cover; object-position: center; }
+
+        .floral-watermark { position: absolute; z-index: 0; opacity: 0.08; mix-blend-mode: multiply; pointer-events: none; filter: contrast(1.2) sepia(0.5); }
+        .top-right { top: -5%; right: -10%; width: 60%; max-width: 400px; transform: rotate(15deg); }
+        .bottom-left { bottom: -5%; left: -10%; width: 70%; max-width: 500px; transform: rotate(-20deg); }
+
+        .portfolio-section {
+            margin-bottom: 3.5rem; position: relative; z-index: 2;
+            background: rgba(255, 255, 255, 0.4);
+            padding: 2.5rem; border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid rgba(255,255,255,0.5);
+            backdrop-filter: blur(5px);
+        }
+        .right-column .portfolio-section { background: rgba(255, 255, 255, 0.25); border: 1px solid rgba(255,255,255,0.3); }
+
+        .section-title {
+            font-family: 'Bodoni Moda', serif; font-size: 2.2rem; font-weight: 600; font-style: italic;
+            margin-bottom: 1.5rem; padding-bottom: 0.8rem; color: var(--color-accent); position: relative;
+        }
+        .section-title::after {
+            content: ""; position: absolute; bottom: 0; left: 0; width: 50px; height: 3px; background-color: var(--color-accent); border-radius: 2px;
+        }
+
+        .section-content { line-height: 1.7; font-size: 1.05rem; color: #333; }
+        .section-content p { margin-bottom: 1rem; }
+        .section-content strong { color: var(--color-accent); font-weight: 600; }
+
+        .timeline { border-left: 2px solid rgba(139, 69, 69, 0.3); padding-left: 1.5rem; margin-left: 0.5rem; }
+        .timeline-item { margin-bottom: 2rem; position: relative; }
+        .timeline-item::before {
+            content: ''; position: absolute; left: -1.85rem; top: 0.4rem; width: 12px; height: 12px;
+            background: var(--color-accent); border-radius: 50%; box-shadow: 0 0 0 4px rgba(139, 69, 69, 0.1);
+        }
+        .timeline-item h3 { font-family: 'Bodoni Moda', serif; font-size: 1.4rem; font-weight: 700; color: var(--color-charcoal); margin-bottom: 0.2rem; }
+        .timeline-item .date {
+            display: inline-block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: #fff;
+            background: var(--color-accent); padding: 0.2rem 0.6rem; border-radius: 4px; font-weight: 600; margin-bottom: 0.5rem;
+        }
+        .timeline-item .company { font-weight: 600; color: var(--color-charcoal); font-style: italic; margin-bottom: 0.4rem; }
+
+        .projects-list { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+        .card-style {
+            background: rgba(255,255,255,0.5); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--color-accent);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card-style:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); }
+        .project-item h3 { font-family: 'Bodoni Moda', serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--color-charcoal); }
+
+        .skill-category { margin-bottom: 0.8rem; font-size: 0.95rem; }
+        .tag {
+            background: rgba(139, 69, 69, 0.1); color: var(--color-accent); padding: 0.4rem 0.8rem; border-radius: 20px;
+            font-size: 0.85rem; font-weight: 600; border: 1px solid rgba(139, 69, 69, 0.2);
+        }
+        .desc-list { margin-top: 0.5rem; padding-left: 1.2rem; font-size: 0.9rem; opacity: 0.9; }
+        .desc-list li { margin-bottom: 0.4rem; }
+        .coursework { margin-top: 0.8rem; font-size: 0.9rem; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUpFade { from { opacity: 0; transform: translate(0, 10%); } to { opacity: 1; transform: translate(0, 0); } }
+
+        @media (max-width: 900px) {
+            .left-column, .right-column { padding: 3rem 2rem; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="texture-overlay noise global-noise"></div>
+    <div class="vignette"></div>
+
+    <div class="container-fluid portfolio-container p-0">
+        <div class="row g-0 h-100">
+            <!-- LEFT COLUMN -->
+            <div class="col-lg-5 split-column left-column d-flex flex-column">
+                <!-- Decorative botanical watermarks -->
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Lilium_candidum_-_Pierre-Joseph_Redout%C3%A9.jpg/800px-Lilium_candidum_-_Pierre-Joseph_Redout%C3%A9.jpg"
+                    alt="" class="floral-watermark top-right">
+
+                <header class="d-flex flex-column align-items-center mb-5 position-relative">
+                    <div class="title-container text-center mt-4 position-relative z-2" style="animation: fadeIn 1.5s ease-out forwards;">
+                        <h2 class="script-title">My Creative</h2>
+                        <h1 class="main-title">Portfolio</h1>
+                    </div>
+                    <div class="profile-pic-frame">
+                        <img src="c:\Users\HP\Pictures\B612_20251220_180908_341.jpg" alt="Profile Picture" class="profile-pic">
+                    </div>
+                </header>
+
+                <section class="portfolio-section">
+                    <h2 class="section-title">About Me</h2>
+                    <div class="section-content">
+                        <p>Computer Science undergraduate at Air University Islamabad with hands-on experience building
+                            full-stack web applications, desktop software, and mobile apps. Skilled across multiple
+                            languages and frameworks including C++, C#, Flutter, Node.js, and Blazor. Actively involved in
+                            tech communities through MLSA and GDG, and driven by a passion for solving real-world problems
+                            through clean, scalable software.</p>
+                    </div>
+                </section>
+
+                <section class="portfolio-section">
+                    <h2 class="section-title">Skills</h2>
+                    <div class="section-content skills-list">
+                        <div class="skill-category">
+                            <strong>Programming:</strong> C++, C#, Dart, JavaScript, SQL, HTML, CSS
+                        </div>
+                        <div class="skill-category">
+                            <strong>Frameworks & Platforms:</strong> Flutter, Blazor .NET 8, Node.js, Express.js, Firebase,
+                            SFML
+                        </div>
+                        <div class="skill-category">
+                            <strong>Databases:</strong> SQL Server (MSSQL), Firebase Firestore, MySQL
+                        </div>
+                        <div class="skill-category">
+                            <strong>Concepts:</strong> OOP, Data Structures, REST APIs, JWT Auth, AES/SHA-256 Encryption,
+                            CRUD, 3-Tier Architecture
+                        </div>
+                        <div class="skill-category">
+                            <strong>Dev Tools:</strong> Git, GitHub, Visual Studio, VS Code, Android Studio, SSMS
+                        </div>
+                    </div>
+                </section>
+
+                <section class="portfolio-section">
+                    <h2 class="section-title">Interests</h2>
+                    <div class="section-content d-flex flex-wrap gap-2">
+                        <span class="tag">Software Engineering</span>
+                        <span class="tag">Full-Stack Web Development</span>
+                        <span class="tag">Mobile App Development (Flutter)</span>
+                        <span class="tag">AI & Machine Learning</span>
+                        <span class="tag">Cybersecurity & Encryption</span>
+                        <span class="tag">Cloud Computing</span>
+                        <span class="tag">Game Development</span>
+                        <span class="tag">Open Source Contribution</span>
+                        <span class="tag">UI/UX Design</span>
+                        <span class="tag">Database Systems</span>
+                        <span class="tag">System Architecture</span>
+                    </div>
+                </section>
+
+                <section class="portfolio-section">
+                    <h2 class="section-title">Contact Me</h2>
+                    <div class="section-content contact-info">
+                        <p><strong>Email:</strong> Aeenakhan190@gmail.com</p>
+                        <p><strong>Phone:</strong> +92 315 5661321</p>
+                        <p><strong>Location:</strong> Islamabad, Pakistan</p>
+                    </div>
+                </section>
+            </div>
+
+            <!-- RIGHT COLUMN -->
+            <div class="col-lg-7 split-column right-column">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Rosa_centifolia_foliacea_-_Pierre-Joseph_Redout%C3%A9.jpg/800px-Rosa_centifolia_foliacea_-_Pierre-Joseph_Redout%C3%A9.jpg"
+                    alt="" class="floral-watermark bottom-left">
+
+                <section class="portfolio-section">
+                    <h2 class="section-title">Education</h2>
+                    <div class="section-content timeline">
+                        <div class="timeline-item">
+                            <h3>B.Sc. in Computer Science (2nd Year)</h3>
+                            <span class="date">2024 - Present</span>
+                            <p class="company">Air University, Islamabad</p>
+                            <div class="coursework">
+                                <strong>Relevant Coursework:</strong>
+                                <ul class="desc-list">
+                                    <li>Programming Fundamentals (C++), Object Oriented Programming, Data Structures &
+                                        Algorithms</li>
+                                    <li>Database Systems (SQL), Digital Logic Design, Discrete Mathematics</li>
+                                    <li>Web Technologies (HTML/CSS/JS), Operating Systems Fundamentals</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="portfolio-section">
+                    <h2 class="section-title">Projects</h2>
+                    <div class="section-content projects-list">
+                        <div class="project-item card-style">
+                            <h3>Drift</h3>
+                            <p>A comprehensive travel, tour, and booking application all in one platform. It simplifies
+                                vacation planning by offering real-time tracking, personalized itineraries, and seamless
+                                hotel reservations, providing users with a frictionless travel experience from start to
+                                finish.</p>
+                        </div>
+                        <div class="project-item card-style">
+                            <h3>AI-Powered Study Buddy</h3>
+                            <p>Full-stack web application built with Node.js, Express, MSSQL, and vanilla JavaScript that
+                                helps students organize notes, generate AI-powered quizzes and flashcards, chat with a study
+                                assistant, plan tasks, and track daily progress with JWT authentication and bcrypt security.
+                            </p>
+                        </div>
+                        <div class="project-item card-style">
+                            <h3>CipherVault Security System</h3>
+                            <p>C# Windows Forms desktop application using SQL Server demonstrating AES-encrypted file
+                                storage, SHA-256 password hashing, authentication, password strength analysis, and simulated
+                                cyber attacks (brute force and dictionary) in a 3-tier layered architecture.</p>
+                        </div>
+                        <div class="project-item card-style">
+                            <h3>EduConnect - Academic Web Portal</h3>
+                            <p>Role-based academic management portal built with Blazor .NET 8 and Bootstrap 5, featuring
+                                student, faculty, and admin modules, course enrollment with capacity tracking, a
+                                CGPA/grading engine, and an event-driven real-time notification system.</p>
+                        </div>
+                        <div class="project-item card-style">
+                            <h3>MonArena - SFML Monster Battle Game</h3>
+                            <p>C++17 SFML turn-based monster battle game with OOP design, polymorphism, abstract interfaces,
+                                AI-driven combat, status effects (burn/stun), and polished 60 FPS real-time visuals
+                                including particles, screen shake, floating damage numbers, and health bar interpolation.
+                            </p>
+                        </div>
+                        <div class="project-item card-style">
+                            <h3>Recipe-Go</h3>
+                            <p>Flutter mobile app backed by Firebase Firestore and Storage that enables recipe discovery,
+                                smart weekly meal planning, auto-generated grocery lists, community recipe sharing with
+                                ratings, and secure Firebase authentication with guest mode support.</p>
+                        </div>
+                        <div class="project-item card-style">
+                            <h3>SkyWings Airlines</h3>
+                            <p>Full-stack flight booking web application built with Node.js, SQL Server, and HTML/CSS/JS,
+                                featuring user authentication with JWT, flight search and filtering, interactive seat
+                                selection with dynamic pricing, multi-passenger booking, admin dashboard, carbon footprint
+                                calculator, and printable boarding passes.</p>
+                        </div>
+                        <div class="project-item card-style">
+                            <h3>Campus-Connect</h3>
+                            <p>Comprehensive campus management platform built in C++ that streamlines student services
+                                through smart navigation, room reservations, study partner matching, and event organization
+                                with a clean console-based interface.</p>
+                        </div>
+                        <div class="project-item card-style">
+                            <h3>CampusConnect-SFML</h3>
+                            <p>C++ and SFML-powered graphical smart campus management system featuring interactive UI,
+                                campus navigation, room booking, student matching, event scheduling, notifications, and
+                                analytics using real-time visual feedback.</p>
+                        </div>
+                        <div class="project-item card-style">
+                            <h3>Password-Analyzer</h3>
+                            <p>Dual-platform application using C++ and Python that analyzes password strength, encrypts and
+                                stores passwords securely, and simulates brute-force attacks through random guessing for
+                                educational cybersecurity demonstration.</p>
+                        </div>
+                        <div class="project-item card-style">
+                            <h3>BloodBank-System</h3>
+                            <p>C++ console-based Blood Bank Management System that manages donors, blood inventory, and
+                                patient requests using Programming Fundamentals concepts, featuring compatibility matching
+                                and urgency-based processing.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="portfolio-section">
+                    <h2 class="section-title">Experience</h2>
+                    <div class="section-content timeline">
+                        <div class="timeline-item">
+                            <h3>Sponsorship Member</h3>
+                            <span class="date">2024 - Present</span>
+                            <p class="company">Microsoft Learn Student Ambassador (MLSA)</p>
+                            <ul class="desc-list">
+                                <li>Secured sponsorships and partnerships for student-focused tech events and workshops.
+                                </li>
+                                <li>Liaised with Microsoft partners and vendors to coordinate funding and resources for
+                                    campus initiatives.</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-item">
+                            <h3>Operations Member</h3>
+                            <span class="date">2024 - Present</span>
+                            <p class="company">Google Developer Group (GDG)</p>
+                            <ul class="desc-list">
+                                <li>Coordinated event logistics, managed volunteer teams, and handled scheduling for
+                                    developer community events.</li>
+                                <li>Supported community outreach and promotion of GDG workshops and speaker sessions.</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-item">
+                            <h3>Back-End Developer Intern</h3>
+                            <span class="date">June 2026 - September 2026</span>
+                            <p class="company">Gridcore (Pvt) Ltd</p>
+                            <ul class="desc-list">
+                                <li>Developed a full-scale real-world project meant to be launched soon.</li>
+                                <li>Assisted in designing backend architecture and integrating APIs for scalable deployment.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

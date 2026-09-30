@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f0f2f5; color: #050505; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #bcc0c4; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #a0a3a7; }
+        
+        .nav-icon { width: 110px; height: 100%; cursor: pointer; border-radius: 8px; transition: background 0.2s; color: #65676b; font-size: 24px; position: relative; }
+        .nav-icon:hover { background-color: #f0f2f5; }
+        .nav-icon.active { color: #1b74e4; }
+        .nav-icon.active::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background-color: #1b74e4; border-radius: 3px 3px 0 0; }
+        
+        .profile-nav:hover { background-color: #f0f2f5; }
+        .icon-btn { width: 40px; height: 40px; border-radius: 50%; background-color: #e4e6eb; font-size: 20px; cursor: pointer; color: #050505; transition: background 0.2s;}
+        .icon-btn:hover { background-color: #d8dadf; }
+        .active-dropdown-btn { background-color: #e6f2ff; color: #1b74e4; }
+        
+        .main-container { margin-top: 56px; height: calc(100vh - 56px); }
+        .left-sidebar { width: 360px; flex-shrink: 0; overflow-y: auto; }
+        .left-sidebar:hover::-webkit-scrollbar-thumb { background: #bcc0c4; }
+        
+        .sidebar-item { border-radius: 8px; cursor: pointer; font-weight: 500; font-size: 15px; }
+        .sidebar-item:hover { background-color: #e4e6eb; }
+        .sidebar-item.more i { background-color: #e4e6eb; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+        
+        .feed-content { max-width: 680px; overflow-y: auto; }
+        
+        .story { width: 112px; height: 200px; border-radius: 10px; overflow: hidden; cursor: pointer; transition: transform 0.2s; background: white; }
+        .story:hover { transform: scale(1.02); }
+        .story-bg { width: 100%; height: 100%; object-fit: cover; }
+        .story.create-story .story-bg { height: 65%; }
+        .create-btn { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); width: 40px; height: 40px; background: #1b74e4; border: 4px solid #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;}
+        .story-text { position: absolute; bottom: 10px; left: 10px; color: white; font-weight: 600; font-size: 13px; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
+        .story.create-story .story-text { color: #050505; text-shadow: none; bottom: 10px; width: 100%; text-align: center; left: 0; }
+        .story-profile { position: absolute; top: 10px; left: 10px; width: 40px; height: 40px; border: 4px solid #1b74e4; border-radius: 50%;}
+        .story-next { position: absolute; right: -20px; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); cursor: pointer; color: #65676b; z-index: 10; }
+        
+        .create-post-top input { background: #f0f2f5; border: none; outline: none; cursor: pointer; }
+        .create-post-top input:hover { background: #e4e6eb; }
+        .action-btn { cursor: pointer; color: #65676b; font-weight: 600; font-size: 15px; }
+        .action-btn:hover { background: #f0f2f5; }
+        
+        .post-time { color: #65676b; font-size: 13px; }
+        .post-image { width: 100%; max-height: 500px; object-fit: cover; }
+        
+        .right-sidebar { width: 360px; flex-shrink: 0; overflow-y: auto; }
+        .right-sidebar:hover::-webkit-scrollbar-thumb { background: #bcc0c4; }
+        
+        .settings-dropdown { width: 340px; position: absolute; top: 60px; right: 16px; z-index: 200; box-shadow: 0 12px 28px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.1);}
+        .dropdown-profile:hover { background: #f0f2f5; }
+        .dropdown-item:hover { background: #f0f2f5; }
+        .icon-circle { width: 36px; height: 36px; background: #e4e6eb; }
+        .toggle-switch { width: 44px; height: 24px; background: #ccc; border-radius: 12px; }
+        .toggle-switch::after { content: ''; width: 20px; height: 20px; background: white; border-radius: 50%; position: absolute; top: 2px; left: 2px; }
+        
+        .new-message-btn { position: fixed; bottom: 20px; right: 20px; width: 48px; height: 48px; background: #e4e6eb; cursor: pointer; z-index: 999; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);}
+        .new-message-btn:hover { background: #d8dadf; }
+    </style>
+</head>
+<body class="overflow-hidden">
+    <!-- Top Navigation -->
+    <nav class="d-flex justify-content-between align-items-center fixed-top bg-white px-3 shadow-sm" style="height: 56px; z-index: 100;">
+        <div class="d-flex align-items-center gap-2" style="width: 320px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg" alt="Facebook Logo" style="width: 40px; height: 40px;">
+            <div class="d-flex align-items-center rounded-pill px-3" style="background-color: #f0f2f5; height: 40px;">
+                <i class="fas fa-search" style="color: #606770; font-size: 14px;"></i>
+                <input type="text" placeholder="Search Facebook" class="bg-transparent border-0 ms-2" style="outline: none; font-size: 15px; width: 200px;">
+            </div>
+        </div>
+
+        <div class="d-flex align-items-center h-100 gap-2">
+            <div class="nav-icon d-flex align-items-center justify-content-center active"><i class="fas fa-home"></i></div>
+            <div class="nav-icon d-flex align-items-center justify-content-center"><i class="fas fa-tv"></i></div>
+            <div class="nav-icon d-flex align-items-center justify-content-center"><i class="fas fa-store"></i></div>
+            <div class="nav-icon d-flex align-items-center justify-content-center"><i class="fas fa-users"></i></div>
+            <div class="nav-icon d-flex align-items-center justify-content-center"><i class="fas fa-gamepad"></i></div>
+        </div>
+
+        <div class="d-flex align-items-center justify-content-end gap-2" style="width: 320px;">
+            <div class="profile-nav d-flex align-items-center gap-1 p-1 pe-3 rounded-pill fw-semibold" style="cursor: pointer;">
+                <img src="c:\Users\HP\Pictures\20250804_132150.jpg" alt="Profile" class="rounded-circle" style="width: 28px; height: 28px;">
+                <span>MastiAeena</span>
+            </div>
+            <div class="icon-btn d-flex align-items-center justify-content-center"><i class="fas fa-plus"></i></div>
+            <div class="icon-btn d-flex align-items-center justify-content-center"><i class="fab fa-facebook-messenger"></i></div>
+            <div class="icon-btn d-flex align-items-center justify-content-center"><i class="fas fa-bell"></i></div>
+            <div class="icon-btn d-flex align-items-center justify-content-center active-dropdown-btn"><i class="fas fa-caret-down"></i></div>
+
+            <!-- Settings dropdown -->
+            <div class="settings-dropdown bg-white rounded p-3">
+                <div class="dropdown-profile d-flex align-items-center gap-2 p-2 rounded">
+                    <img src="c:\Users\HP\Pictures\20250804_132150.jpg" alt="Profile" class="rounded-circle" style="width: 60px; height: 60px;">
+                    <div>
+                        <span class="d-block fw-semibold" style="font-size: 17px;">MastiAeena</span>
+                        <span class="text-secondary" style="font-size: 15px;">See Your Profile</span>
+                    </div>
+                </div>
+                <hr class="my-2 border-secondary opacity-25">
+                <div class="dropdown-item d-flex align-items-center gap-2 p-2 rounded position-relative fw-semibold" style="font-size: 15px;">
+                    <div class="icon-circle rounded-circle d-flex align-items-center justify-content-center"><i class="fas fa-cog"></i></div>
+                    <span>Settings & Privacy</span>
+                    <i class="fas fa-chevron-right position-absolute" style="right: 8px; color: #65676b;"></i>
+                </div>
+                <div class="dropdown-item d-flex align-items-center gap-2 p-2 rounded position-relative fw-semibold" style="font-size: 15px;">
+                    <div class="icon-circle rounded-circle d-flex align-items-center justify-content-center"><i class="fas fa-question-circle"></i></div>
+                    <span>Help & Support</span>
+                    <i class="fas fa-chevron-right position-absolute" style="right: 8px; color: #65676b;"></i>
+                </div>
+                <div class="dropdown-item d-flex align-items-center gap-2 p-2 rounded position-relative fw-semibold" style="font-size: 15px;">
+                    <div class="icon-circle rounded-circle d-flex align-items-center justify-content-center"><i class="fas fa-moon"></i></div>
+                    <span>Dark Mode</span>
+                    <div class="toggle-switch"></div>
+                </div>
+                <div class="dropdown-item d-flex align-items-center gap-2 p-2 rounded position-relative fw-semibold" style="font-size: 15px;">
+                    <div class="icon-circle rounded-circle d-flex align-items-center justify-content-center"><i class="fas fa-arrow-left"></i></div>
+                    <span>Switch to Classic Facebook</span>
+                </div>
+                <div class="dropdown-item d-flex align-items-center gap-2 p-2 rounded position-relative fw-semibold" style="font-size: 15px;">
+                    <div class="icon-circle rounded-circle d-flex align-items-center justify-content-center"><i class="fas fa-exclamation-circle"></i></div>
+                    <span>Send Feedback</span>
+                </div>
+                <div class="dropdown-item d-flex align-items-center gap-2 p-2 rounded position-relative fw-semibold" style="font-size: 15px;">
+                    <div class="icon-circle rounded-circle d-flex align-items-center justify-content-center"><i class="fas fa-sign-out-alt"></i></div>
+                    <span>Log Out</span>
+                </div>
+                <div class="text-secondary mt-2 px-2" style="font-size: 12px; line-height: 1.5;">
+                    Privacy · Terms · Advertising · Ad Choices · Cookies · More · Facebook © 2019
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <div class="main-container d-flex justify-content-between">
+        <!-- Left Sidebar -->
+        <div class="left-sidebar px-2 py-3">
+            <div class="sidebar-item d-flex align-items-center gap-2 p-2">
+                <img src="c:\Users\HP\Pictures\20250804_132150.jpg" alt="Profile" class="rounded-circle" style="width: 36px; height: 36px;">
+                <span>MastiAeena</span>
+            </div>
+            <div class="sidebar-item d-flex align-items-center gap-2 p-2">
+                <i class="fas fa-tv text-center" style="color: #2381fa; width: 36px; font-size: 20px;"></i>
+                <span>Watch</span>
+            </div>
+            <div class="sidebar-item d-flex align-items-center gap-2 p-2">
+                <i class="fas fa-calendar-alt text-center" style="color: #f02849; width: 36px; font-size: 20px;"></i>
+                <span>Events</span>
+            </div>
+            <div class="sidebar-item d-flex align-items-center gap-2 p-2">
+                <i class="fas fa-user-friends text-center" style="color: #1b74e4; width: 36px; font-size: 20px;"></i>
+                <span>Friends</span>
+            </div>
+            <div class="sidebar-item d-flex align-items-center gap-2 p-2">
+                <i class="fas fa-clock text-center" style="color: #1b74e4; width: 36px; font-size: 20px;"></i>
+                <span>Memories</span>
+            </div>
+            <div class="sidebar-item more d-flex align-items-center gap-2 p-2">
+                <i class="fas fa-chevron-down"></i>
+                <span>See More</span>
+            </div>
+
+            <hr class="my-2 mx-2 border-secondary opacity-25">
+
+            <h4 class="px-2 py-2 mb-0" style="color: #65676b; font-size: 17px; font-weight: 600;">Shortcuts</h4>
+            <div class="sidebar-item d-flex align-items-center gap-2 p-2">
+                <img src="https://picsum.photos/30/30?random=1" alt="Shortcut" class="rounded-circle" style="width: 36px; height: 36px;">
+                <span>Kitten's for adoption</span>
+            </div>
+            <div class="sidebar-item d-flex align-items-center gap-2 p-2">
+                <img src="https://picsum.photos/30/30?random=2" alt="Shortcut" class="rounded-circle" style="width: 36px; height: 36px;">
+                <span>Best cafe's in isb</span>
+            </div>
+            <div class="sidebar-item d-flex align-items-center gap-2 p-2">
+                <img src="https://picsum.photos/30/30?random=3" alt="Shortcut" class="rounded-circle" style="width: 36px; height: 36px;">
+                <span>H9 hafta bazar</span>
+            </div>
+            <div class="sidebar-item d-flex align-items-center gap-2 p-2">
+                <img src="https://picsum.photos/30/30?random=4" alt="Shortcut" class="rounded-circle" style="width: 36px; height: 36px;">
+                <span>Movie club Isb</span>
+            </div>
+            <div class="sidebar-item d-flex align-items-center gap-2 p-2">
+                <img src="https://picsum.photos/30/30?random=5" alt="Shortcut" class="rounded-circle" style="width: 36px; height: 36px;">
+                <span>Best Hidden Hiking Trails</span>
+            </div>
+            <div class="sidebar-item more d-flex align-items-center gap-2 p-2">
+                <i class="fas fa-chevron-down"></i>
+                <span>See More</span>
+            </div>
+        </div>
+
+        <!-- Middle Content (Feed) -->
+        <div class="feed-content flex-grow-1 mx-auto px-4 py-4">
+            <!-- Stories -->
+            <div class="stories-container d-flex gap-2 mb-4 position-relative">
+                <div class="story create-story position-relative">
+                    <img src="c:\Users\HP\Pictures\20250804_132150.jpg" alt="Story" class="story-bg">
+                    <div class="create-btn"><i class="fas fa-plus"></i></div>
+                    <span class="story-text">Add to Story</span>
+                </div>
+                <div class="story position-relative">
+                    <img src="c:\Users\HP\Pictures\20250329_190549.jpg" alt="Story" class="story-bg">
+                    <img src="c:\Users\HP\Pictures\20250327_105647.jpg" alt="User" class="story-profile">
+                    <span class="story-text">ChotiAdina</span>
+                </div>
+                <div class="story position-relative">
+                    <img src="c:\Users\HP\Pictures\20251114_225650.jpg" alt="Story" class="story-bg">
+                    <img src="c:\Users\HP\Pictures\20250930_120157.jpg" alt="User" class="story-profile">
+                    <span class="story-text">LoserHania</span>
+                </div>
+                <div class="story position-relative">
+                    <img src="c:\Users\HP\Pictures\20241017_220634.jpg" alt="Story" class="story-bg">
+                    <img src="c:\Users\HP\Pictures\IMAGE_FILE_CACHE.jpg" alt="User" class="story-profile">
+                    <span class="story-text">RagebaiterBilal</span>
+                </div>
+                <div class="story position-relative">
+                    <img src="c:\Users\HP\Pictures\20240429_161531.jpg" alt="Story" class="story-bg">
+                    <img src="c:\Users\HP\Pictures\IMG_4888.JPG" alt="User" class="story-profile">
+                    <span class="story-text">PookieAhmed</span>
+                </div>
+                <div class="story-next position-absolute">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+            </div>
+
+            <!-- Create Post -->
+            <div class="create-post bg-white rounded shadow-sm p-3 mb-4">
+                <div class="create-post-top d-flex align-items-center gap-2 mb-3">
+                    <img src="c:\Users\HP\Pictures\20250804_132150.jpg" alt="Profile" class="rounded-circle" style="width: 40px; height: 40px;">
+                    <input type="text" placeholder="What's on your mind, MastiAeena?" class="flex-grow-1 rounded-pill px-3 py-2" style="font-size: 17px;">
+                </div>
+                <hr class="border-secondary opacity-25 m-0 mb-2">
+                <div class="create-post-bottom d-flex justify-content-between">
+                    <div class="action-btn flex-grow-1 d-flex align-items-center justify-content-center gap-2 p-2 rounded">
+                        <i class="fas fa-video" style="color: #f3425f;"></i>
+                        <span>Live Video</span>
+                    </div>
+                    <div class="action-btn flex-grow-1 d-flex align-items-center justify-content-center gap-2 p-2 rounded">
+                        <i class="fas fa-images" style="color: #45bd62;"></i>
+                        <span>Photo/Video</span>
+                    </div>
+                    <div class="action-btn flex-grow-1 d-flex align-items-center justify-content-center gap-2 p-2 rounded">
+                        <i class="far fa-smile" style="color: #f7b928;"></i>
+                        <span>Feeling/Activity</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Post 1 -->
+            <div class="post bg-white rounded shadow-sm mb-4 pt-3">
+                <div class="post-top d-flex justify-content-between align-items-center px-3 pb-3">
+                    <div class="post-user-info d-flex align-items-center gap-2">
+                        <img src="c:\Users\HP\Pictures\20250327_105647.jpg" alt="Profile" class="rounded-circle" style="width: 40px; height: 40px;">
+                        <div>
+                            <span class="user-name d-block fw-semibold" style="font-size: 15px;">ChotiAdina</span>
+                            <span class="post-time d-flex align-items-center gap-1">5 hrs &middot; <i class="fas fa-user-friends"></i></span>
+                        </div>
+                    </div>
+                    <i class="fas fa-ellipsis-h text-secondary"></i>
+                </div>
+                <img src="c:\Users\HP\Downloads\A Ray of Sunshine in the Form of 23 Fuzzy Feline___.jpg" alt="Funny Cat Meme" class="post-image">
+                <div class="post-bottom d-flex justify-content-between align-items-center px-3 py-2 text-secondary" style="font-size: 15px;">
+                    <div class="reactions d-flex align-items-center gap-1">
+                        <i class="fas fa-thumbs-up" style="color: #1b74e4;"></i>
+                        <i class="fas fa-heart" style="color: #f3425f;"></i>
+                        <span> 2.5K</span>
+                    </div>
+                    <div class="comments-shares">
+                        <span>420 Comments</span>
+                        <span class="ms-2">98 Shares</span>
+                    </div>
+                </div>
+                <hr class="mx-3 my-2 border-secondary opacity-25">
+                <div class="post-actions d-flex px-3 pb-1">
+                    <div class="action-btn flex-grow-1 d-flex justify-content-center align-items-center gap-2 p-2 rounded"><i class="far fa-thumbs-up"></i> Like</div>
+                    <div class="action-btn flex-grow-1 d-flex justify-content-center align-items-center gap-2 p-2 rounded"><i class="far fa-comment-alt"></i> Comment</div>
+                    <div class="action-btn flex-grow-1 d-flex justify-content-center align-items-center gap-2 p-2 rounded"><i class="fas fa-share"></i> Share</div>
+                </div>
+            </div>
+
+            <!-- Post 2 -->
+            <div class="post bg-white rounded shadow-sm mb-4 pt-3">
+                <div class="post-top d-flex justify-content-between align-items-center px-3 pb-3">
+                    <div class="post-user-info d-flex align-items-center gap-2">
+                        <img src="c:\Users\HP\Pictures\20250930_120157.jpg" alt="Profile" class="rounded-circle" style="width: 40px; height: 40px;">
+                        <div>
+                            <span class="user-name d-block fw-semibold" style="font-size: 15px;">LoserHania</span>
+                            <span class="post-time d-flex align-items-center gap-1">10 hrs &middot; <i class="fas fa-globe-americas"></i></span>
+                        </div>
+                    </div>
+                    <i class="fas fa-ellipsis-h text-secondary"></i>
+                </div>
+                <img src="c:\Users\HP\Downloads\oop.jpg" alt=" Meme" class="post-image">
+                <div class="post-bottom d-flex justify-content-between align-items-center px-3 py-2 text-secondary" style="font-size: 15px;">
+                    <div class="reactions d-flex align-items-center gap-1">
+                        <i class="fas fa-thumbs-up" style="color: #1b74e4;"></i>
+                        <span> 1.2K</span>
+                    </div>
+                    <div class="comments-shares">
+                        <span>150 Comments</span>
+                        <span class="ms-2">12 Shares</span>
+                    </div>
+                </div>
+                <hr class="mx-3 my-2 border-secondary opacity-25">
+                <div class="post-actions d-flex px-3 pb-1">
+                    <div class="action-btn flex-grow-1 d-flex justify-content-center align-items-center gap-2 p-2 rounded"><i class="far fa-thumbs-up"></i> Like</div>
+                    <div class="action-btn flex-grow-1 d-flex justify-content-center align-items-center gap-2 p-2 rounded"><i class="far fa-comment-alt"></i> Comment</div>
+                    <div class="action-btn flex-grow-1 d-flex justify-content-center align-items-center gap-2 p-2 rounded"><i class="fas fa-share"></i> Share</div>
+                </div>
+            </div>
+
+            <!-- Post 3 -->
+            <div class="post bg-white rounded shadow-sm mb-4 pt-3">
+                <div class="post-top d-flex justify-content-between align-items-center px-3 pb-3">
+                    <div class="post-user-info d-flex align-items-center gap-2">
+                        <img src="c:\Users\HP\Pictures\IMAGE_FILE_CACHE.jpg" alt="Profile" class="rounded-circle" style="width: 40px; height: 40px;">
+                        <div>
+                            <span class="user-name d-block fw-semibold" style="font-size: 15px;">RagebaiterBilal</span>
+                            <span class="post-time d-flex align-items-center gap-1">Yesterday at 8:45 PM &middot; <i class="fas fa-user-friends"></i></span>
+                        </div>
+                    </div>
+                    <i class="fas fa-ellipsis-h text-secondary"></i>
+                </div>
+                <div class="post-text px-3 pb-3" style="font-size: 15px;">
+                    Me and the only two people i like in uni.
+                </div>
+                <img src="c:\Users\HP\Downloads\скибидосики.jpg" alt="Life Update Meme" class="post-image">
+                <div class="post-bottom d-flex justify-content-between align-items-center px-3 py-2 text-secondary" style="font-size: 15px;">
+                    <div class="reactions d-flex align-items-center gap-1">
+                        <i class="fas fa-thumbs-up" style="color: #1b74e4;"></i>
+                        <i class="fas fa-laugh-squint" style="color: #f7b928;"></i>
+                        <span> 8.9K</span>
+                    </div>
+                    <div class="comments-shares">
+                        <span>1.1K Comments</span>
+                        <span class="ms-2">456 Shares</span>
+                    </div>
+                </div>
+                <hr class="mx-3 my-2 border-secondary opacity-25">
+                <div class="post-actions d-flex px-3 pb-1">
+                    <div class="action-btn flex-grow-1 d-flex justify-content-center align-items-center gap-2 p-2 rounded"><i class="far fa-thumbs-up"></i> Like</div>
+                    <div class="action-btn flex-grow-1 d-flex justify-content-center align-items-center gap-2 p-2 rounded"><i class="far fa-comment-alt"></i> Comment</div>
+                    <div class="action-btn flex-grow-1 d-flex justify-content-center align-items-center gap-2 p-2 rounded"><i class="fas fa-share"></i> Share</div>
+                </div>
+            </div>
+
+            <div class="text-center p-4 fw-medium" style="color: #65676b;">
+                No more posts to show right now.
+            </div>
+        </div>
+
+        <!-- Right Sidebar -->
+        <div class="right-sidebar px-2 py-3 position-relative">
+            <h4 class="px-2 py-2 mb-0" style="color: #65676b; font-size: 17px; font-weight: 600;">Contacts</h4>
+            <div class="sidebar-item d-flex align-items-center gap-2 p-2">
+                <img src="https://randomuser.me/api/portraits/men/15.jpg" alt="Contact" class="rounded-circle" style="width: 36px; height: 36px;">
+                <span>ChotiAdina</span>
+            </div>
+            <div class="sidebar-item d-flex align-items-center gap-2 p-2">
+                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Contact" class="rounded-circle" style="width: 36px; height: 36px;">
+                <span>LoserHania</span>
+            </div>
+            <div class="sidebar-item d-flex align-items-center gap-2 p-2">
+                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Contact" class="rounded-circle" style="width: 36px; height: 36px;">
+                <span>RagebaiterBilal</span>
+            </div>
+            <div class="sidebar-item d-flex align-items-center gap-2 p-2">
+                <img src="https://randomuser.me/api/portraits/women/24.jpg" alt="Contact" class="rounded-circle" style="width: 36px; height: 36px;">
+                <span>PookieAhmed</span>
+            </div>
+
+            <div class="new-message-btn rounded-circle d-flex align-items-center justify-content-center shadow-sm">
+                <i class="fas fa-edit"></i>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

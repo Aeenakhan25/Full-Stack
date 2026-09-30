@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chord Masters - Premium Instruments</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        body { background-color: #170d18; color: #f1f5f9; font-family: 'Segoe UI', system-ui, sans-serif; }
+        .bg-nav { background-color: rgba(23, 13, 24, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid #321d36; }
+        .card-dark { background-color: #231526; border: 1px solid #321d36; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card-dark:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.6); }
+        .text-gold { color: #eab308; }
+        .btn-gold { background-color: #ca8a04; color: #fff; border: none; transition: background-color 0.3s; }
+        .btn-gold:hover { background-color: #a16207; color: #fff; }
+        .btn-outline-gold { border: 1px solid #ca8a04; color: #eab308; transition: all 0.3s; }
+        .btn-outline-gold:hover { background-color: #ca8a04; color: #fff; }
+        .hero-section { background: linear-gradient(to right, #241426, #170d18); position: relative; overflow: hidden; }
+        .badge-muted { background-color: #321d36; color: #e2e8f0; }
+        .animate-fade { animation: fadeIn 1s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-nav py-3 sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center text-white fw-bolder fs-4" href="index.html">
+                <i class="bi bi-music-note-list text-gold me-2"></i>Chord Masters
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="bi bi-list fs-1 text-light"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4 fw-medium">
+                    <li class="nav-item"><a class="nav-link text-white" href="index.html">Showroom</a></li>
+                    <li class="nav-item"><a class="nav-link text-secondary" href="#collection">Collection</a></li>
+                    <li class="nav-item"><a class="nav-link text-secondary" href="add-product.html">Admin</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-3 mt-3 mt-lg-0">
+                    <a href="login.html" class="nav-link text-secondary hover-text-white">Log In</a>
+                    <a href="signup.html" class="btn btn-outline-gold rounded-pill px-4">Sign Up</a>
+                    <a href="cart.html" class="btn btn-gold rounded-circle p-2 position-relative d-inline-flex align-items-center justify-content-center shadow-sm" style="width: 45px; height: 45px;">
+                        <i class="bi bi-cart-fill fs-5"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger border border-dark">2</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section py-5 animate-fade border-bottom border-dark">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0 pe-lg-5">
+                    <span class="badge badge-muted fs-6 px-3 py-2 rounded-pill shadow-sm mb-4 border border-secondary">The 2026 Collection</span>
+                    <h1 class="display-4 fw-bolder text-white mb-4">Crafting Your <br><span class="text-gold">Sonic Journey.</span></h1>
+                    <p class="fs-5 text-secondary mb-5">Premium, handcrafted instruments for musicians who demand perfection. Explore our muted, elegant showroom.</p>
+                    <a href="#collection" class="btn btn-gold btn-lg rounded-pill px-5 shadow-lg">Explore Instruments</a>
+                </div>
+                <div class="col-lg-6">
+                    <img src="file:///C:/Users/HP/.gemini/antigravity-ide/brain/b0464225-13b2-4b5c-a6c2-a1e25c749e72/hero_band_1790777161801.jpg" alt="Live Band" class="img-fluid rounded-4 shadow-lg border border-secondary" style="opacity: 0.9;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collection Section -->
+    <section id="collection" class="py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5 animate-fade">
+                <h2 class="display-6 fw-bolder text-white">The <span class="text-gold">Instruments</span></h2>
+                <p class="text-secondary">Discover our world-class gear.</p>
+            </div>
+
+
+
+            <div class="row g-4">
+                <!-- Product 1 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 card-dark rounded-4 overflow-hidden">
+                        <img src="file:///C:/Users/HP/.gemini/antigravity-ide/brain/b0464225-13b2-4b5c-a6c2-a1e25c749e72/acoustic_guitar_1790777072176.jpg" class="card-img-top object-fit-cover" style="height: 220px;" alt="Acoustic Guitar">
+                        <div class="card-body p-4 d-flex flex-column">
+                            <span class="badge badge-muted rounded-pill mb-2 align-self-start">Acoustic</span>
+                            <h5 class="card-title fw-bold text-white mb-1">Classic Acoustic</h5>
+                            <div class="text-gold small mb-3"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></div>
+                            <h5 class="text-white fw-bold mb-4 mt-auto">$850.00</h5>
+                            <a href="cart.html" class="btn btn-outline-gold rounded-pill fw-medium w-100">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 2 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 card-dark rounded-4 overflow-hidden">
+                        <img src="file:///C:/Users/HP/.gemini/antigravity-ide/brain/b0464225-13b2-4b5c-a6c2-a1e25c749e72/electric_guitar_1790777083554.jpg" class="card-img-top object-fit-cover" style="height: 220px;" alt="Electric Guitar">
+                        <div class="card-body p-4 d-flex flex-column">
+                            <span class="badge badge-muted rounded-pill mb-2 align-self-start">Electric</span>
+                            <h5 class="card-title fw-bold text-white mb-1">Neon Stratocaster</h5>
+                            <div class="text-gold small mb-3"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                            <h5 class="text-white fw-bold mb-4 mt-auto">$1,299.00</h5>
+                            <a href="cart.html" class="btn btn-outline-gold rounded-pill fw-medium w-100">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 3 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 card-dark rounded-4 overflow-hidden">
+                        <img src="file:///C:/Users/HP/.gemini/antigravity-ide/brain/b0464225-13b2-4b5c-a6c2-a1e25c749e72/bass_guitar_1790777092364.jpg" class="card-img-top object-fit-cover" style="height: 220px;" alt="Bass Guitar">
+                        <div class="card-body p-4 d-flex flex-column">
+                            <span class="badge badge-muted rounded-pill mb-2 align-self-start">Bass</span>
+                            <h5 class="card-title fw-bold text-white mb-1">Funky P-Bass</h5>
+                            <div class="text-gold small mb-3"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i></div>
+                            <h5 class="text-white fw-bold mb-4 mt-auto">$1,100.00</h5>
+                            <a href="cart.html" class="btn btn-outline-gold rounded-pill fw-medium w-100">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 4 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 card-dark rounded-4 overflow-hidden">
+                        <img src="file:///C:/Users/HP/.gemini/antigravity-ide/brain/b0464225-13b2-4b5c-a6c2-a1e25c749e72/drum_kit_1790777105381.jpg" class="card-img-top object-fit-cover" style="height: 220px;" alt="Drum Kit">
+                        <div class="card-body p-4 d-flex flex-column">
+                            <span class="badge badge-muted rounded-pill mb-2 align-self-start">Drums</span>
+                            <h5 class="card-title fw-bold text-white mb-1">Studio Drum Kit</h5>
+                            <div class="text-gold small mb-3"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></div>
+                            <h5 class="text-white fw-bold mb-4 mt-auto">$2,500.00</h5>
+                            <a href="cart.html" class="btn btn-outline-gold rounded-pill fw-medium w-100">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 5 -->
+                <div class="col-md-6 col-lg-4 mt-4">
+                    <div class="card h-100 card-dark rounded-4 overflow-hidden">
+                        <img src="file:///C:/Users/HP/.gemini/antigravity-ide/brain/b0464225-13b2-4b5c-a6c2-a1e25c749e72/grand_piano_1790777120685.jpg" class="card-img-top object-fit-cover" style="height: 280px;" alt="Grand Piano">
+                        <div class="card-body p-4 d-flex flex-column">
+                            <span class="badge badge-muted rounded-pill mb-2 align-self-start">Keys</span>
+                            <h5 class="card-title fw-bold text-white mb-1">Concert Grand Piano</h5>
+                            <h5 class="text-white fw-bold mb-4 mt-auto">$15,000.00</h5>
+                            <a href="cart.html" class="btn btn-gold rounded-pill fw-medium w-100">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 6 -->
+                <div class="col-md-6 col-lg-4 mt-4">
+                    <div class="card h-100 card-dark rounded-4 overflow-hidden">
+                        <img src="file:///C:/Users/HP/.gemini/antigravity-ide/brain/b0464225-13b2-4b5c-a6c2-a1e25c749e72/keyboard_synth_1790777134311.jpg" class="card-img-top object-fit-cover" style="height: 280px;" alt="Synthesizer">
+                        <div class="card-body p-4 d-flex flex-column">
+                            <span class="badge badge-muted rounded-pill mb-2 align-self-start">Keys & Synth</span>
+                            <h5 class="card-title fw-bold text-white mb-1">Analog Poly-Synth</h5>
+                            <h5 class="text-white fw-bold mb-4 mt-auto">$2,100.00</h5>
+                            <a href="cart.html" class="btn btn-gold rounded-pill fw-medium w-100">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 7 -->
+                <div class="col-md-6 col-lg-4 mt-4">
+                    <div class="card h-100 card-dark rounded-4 overflow-hidden">
+                        <img src="file:///C:/Users/HP/.gemini/antigravity-ide/brain/b0464225-13b2-4b5c-a6c2-a1e25c749e72/harp_1790777148947.jpg" class="card-img-top object-fit-cover" style="height: 280px;" alt="Harp">
+                        <div class="card-body p-4 d-flex flex-column">
+                            <span class="badge badge-muted rounded-pill mb-2 align-self-start">Orchestral</span>
+                            <h5 class="card-title fw-bold text-white mb-1">Golden Concert Harp</h5>
+                            <h5 class="text-white fw-bold mb-4 mt-auto">$8,450.00</h5>
+                            <a href="cart.html" class="btn btn-gold rounded-pill fw-medium w-100">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="py-5 bg-nav border-top" style="border-color: #321d36 !important;">
+        <div class="container py-5">
+            <div class="text-center mb-5 animate-fade">
+                <h2 class="display-6 fw-bolder text-white">What The <span class="text-gold">Artists Say</span></h2>
+                <p class="text-secondary">Don't just take our word for it.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card card-dark h-100 rounded-4 p-4 shadow-sm animate-fade">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="rounded-circle text-dark fw-bold d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px; background-color: #eab308;">A</div>
+                            <div>
+                                <h5 class="text-white mb-0">Adon</h5>
+                                <div class="text-gold small"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                            </div>
+                        </div>
+                        <p class="text-secondary mb-0">"The Neon Stratocaster is unreal. The action is perfect right out of the box and it looks absolutely insane on stage!"</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-dark h-100 rounded-4 p-4 shadow-sm animate-fade" style="animation-delay: 0.1s;">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="rounded-circle text-dark fw-bold d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px; background-color: #eab308;">P</div>
+                            <div>
+                                <h5 class="text-white mb-0">popper</h5>
+                                <div class="text-gold small"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                            </div>
+                        </div>
+                        <p class="text-secondary mb-0">"I've been looking for a Studio Drum Kit that cuts through the mix. Chord Masters delivered. Shipping was fast too."</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-dark h-100 rounded-4 p-4 shadow-sm animate-fade" style="animation-delay: 0.2s;">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="rounded-circle text-dark fw-bold d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px; background-color: #eab308;">B</div>
+                            <div>
+                                <h5 class="text-white mb-0">bilo</h5>
+                                <div class="text-gold small"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></div>
+                            </div>
+                        </div>
+                        <p class="text-secondary mb-0">"Bought the Poly-Synth. The warm analog tones are exactly what my tracks were missing. Highly recommend this shop."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-nav py-5 border-top" style="border-color: #321d36 !important;">
+        <div class="container pt-4 text-center">
+            <h4 class="text-white fw-bold mb-3"><i class="bi bi-music-note-list text-gold me-2"></i>Chord Masters</h4>
+            <p class="text-secondary mb-4">Elegant sound for elegant minds.</p>
+            <div class="d-flex justify-content-center gap-3 mb-4">
+                <a href="#" class="text-secondary fs-4"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="text-secondary fs-4"><i class="bi bi-youtube"></i></a>
+                <a href="#" class="text-secondary fs-4"><i class="bi bi-twitter"></i></a>
+            </div>
+            <small class="text-muted">&copy; 2026 Chord Masters. All Rights Reserved.</small>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
