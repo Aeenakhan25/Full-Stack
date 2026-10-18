@@ -1,0 +1,6 @@
+{
+  "name": "campusflow-transcript-service",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Lab 5 Task 5 - Modular Transcript Processing and Fault-Tolerant JSON"
+}

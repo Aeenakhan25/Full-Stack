@@ -1,5 +1,4 @@
 /**
- * Function takes array of numbers and returns
  * @param {array of numbers} numbers
  * @returns string in following format: "(123) 456-7890"
  */

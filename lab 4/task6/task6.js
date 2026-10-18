@@ -7,9 +7,5 @@ function sumOfMultiples(x, y, z) {
     }
     return sum;
 }
-
-// Example given in the task description: multiples of 3 or 5 below 10
-console.log(sumOfMultiples(3, 5, 10)); // Output should be 23
-
-// Additional tests
-console.log(sumOfMultiples(3, 5, 1000)); // Standard Project Euler #1 test
+console.log(sumOfMultiples(3, 5, 10)); 
+console.log(sumOfMultiples(3, 5, 1000)); 
